@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanese Language Guide — Everyday Conversational</title>
+<style>
+  :root {
+    --bg: #0f0f13;
+    --bg2: #16161d;
+    --bg3: #1e1e28;
+    --bg4: #252532;
+    --border: #2e2e3e;
+    --text: #e8e8f0;
+    --text2: #a0a0b8;
+    --text3: #6a6a80;
+    --accent1: #7c6af7; /* purple */
+    --accent2: #f76a8a; /* pink/red */
+    --accent3: #6af7c4; /* teal */
+    --accent4: #f7c46a; /* gold */
+    --accent5: #6ab8f7; /* blue */
+    --accent6: #c46af7; /* violet */
+    --correct: #4caf72;
+    --wrong: #f7534a;
+    --radius: 10px;
+    --font-jp: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ─────────────────────────────────── */
+  header {
+    background: linear-gradient(135deg, #1a1030 0%, #0f0f1a 60%, #10181a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '日本語';
+    position: absolute;
+    font-size: 200px;
+    font-family: var(--font-jp);
+    color: rgba(124,106,247,0.05);
+    top: -30px; left: 50%; transform: translateX(-50%);
+    pointer-events: none;
+    letter-spacing: 0.1em;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+  header p {
+    color: var(--text2);
+    margin-top: 8px;
+    font-size: 1rem;
+    position: relative;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(124,106,247,0.15);
+    border: 1px solid rgba(124,106,247,0.3);
+    color: var(--accent1);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.78rem;
+    margin-top: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── NAV TABS ───────────────────────────────── */
+  nav {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 8px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav button {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--text2);
+    padding: 7px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.83rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  nav button:hover { background: var(--bg3); color: var(--text); border-color: var(--border); }
+  nav button.active {
+    background: rgba(124,106,247,0.18);
+    border-color: rgba(124,106,247,0.4);
+    color: var(--accent1);
+  }
+
+  /* ── LAYOUT ─────────────────────────────────── */
+  main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  section.tab-panel { display: none; }
+  section.tab-panel.active { display: block; }
+
+  /* ── SECTION HEADER ─────────────────────────── */
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .section-desc { color: var(--text2); margin-bottom: 24px; font-size: 0.95rem; }
+
+  /* ── CARDS ──────────────────────────────────── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 18px;
+  }
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  /* ── PARTICLE GRID ──────────────────────────── */
+  .particle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .particle-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    border-left: 3px solid var(--accent1);
+  }
+  .particle-card.ga  { border-left-color: var(--accent2); }
+  .particle-card.wo  { border-left-color: var(--accent3); }
+  .particle-card.ni  { border-left-color: var(--accent4); }
+  .particle-card.de  { border-left-color: var(--accent5); }
+  .particle-card.to  { border-left-color: var(--accent6); }
+  .particle-card.mo  { border-left-color: #f7a46a; }
+  .particle-card.ka  { border-left-color: #6af7a4; }
+  .particle-label {
+    font-size: 1.4rem;
+    font-family: var(--font-jp);
+    font-weight: 700;
+    color: var(--accent1);
+  }
+  .particle-card.ga .particle-label  { color: var(--accent2); }
+  .particle-card.wo .particle-label  { color: var(--accent3); }
+  .particle-card.ni .particle-label  { color: var(--accent4); }
+  .particle-card.de .particle-label  { color: var(--accent5); }
+  .particle-card.to .particle-label  { color: var(--accent6); }
+  .particle-card.mo .particle-label  { color: #f7a46a; }
+  .particle-card.ka .particle-label  { color: #6af7a4; }
+  .particle-rom { font-size: 0.8rem; color: var(--text3); }
+  .particle-meaning { font-size: 0.88rem; color: var(--text2); margin: 6px 0 10px; }
+  .particle-ex { font-size: 0.84rem; background: var(--bg4); border-radius: 6px; padding: 8px 10px; }
+  .jp { font-family: var(--font-jp); }
+  .rom { color: var(--text3); font-style: italic; font-size: 0.82em; }
+  .en { color: var(--text2); font-size: 0.85em; }
+
+  /* ── SENTENCE BREAKDOWN ─────────────────────── */
+  .sov-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 16px 0;
+    align-items: center;
+  }
+  .sov-chunk {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 90px;
+  }
+  .sov-chunk .jp { font-size: 1.1rem; display: block; }
+  .sov-chunk .rom { display: block; font-size: 0.75rem; }
+  .sov-chunk .role { font-size: 0.7rem; color: var(--text3); margin-top: 4px; display: block; letter-spacing: 0.05em; text-transform: uppercase; }
+  .sov-chunk.subject { border-color: var(--accent1); }
+  .sov-chunk.object  { border-color: var(--accent3); }
+  .sov-chunk.verb    { border-color: var(--accent2); }
+  .sov-chunk.particle { border-color: var(--border); background: var(--bg4); }
+  .arrow { color: var(--text3); font-size: 1.2rem; align-self: center; }
+
+  /* ── VERB TABLE ─────────────────────────────── */
+  .verb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .verb-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .verb-jp {
+    font-family: var(--font-jp);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent3);
+    min-width: 52px;
+  }
+  .verb-info { flex: 1; }
+  .verb-rom { font-size: 0.78rem; color: var(--text3); }
+  .verb-en { font-size: 0.88rem; color: var(--text2); }
+  .verb-type { font-size: 0.7rem; border-radius: 4px; padding: 2px 6px; display: inline-block; margin-top: 4px; }
+  .type-godan  { background: rgba(124,106,247,0.15); color: var(--accent1); }
+  .type-ichidan { background: rgba(106,247,196,0.12); color: var(--accent3); }
+  .type-irr    { background: rgba(247,106,138,0.15); color: var(--accent2); }
+
+  /* ── CONJUGATION TABLE ──────────────────────── */
+  .conj-table-wrap { overflow-x: auto; }
+  table.conj {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+    min-width: 700px;
+  }
+  table.conj th {
+    background: var(--bg4);
+    color: var(--text2);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    border-bottom: 2px solid var(--border);
+  }
+  table.conj th:first-child { border-radius: 8px 0 0 0; }
+  table.conj th:last-child  { border-radius: 0 8px 0 0; }
+  table.conj td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.conj tr:hover td { background: rgba(255,255,255,0.02); }
+  table.conj .form-name { color: var(--accent4); font-weight: 600; }
+  table.conj .conj-jp { font-family: var(--font-jp); font-size: 1rem; }
+  table.conj .conj-rom { font-size: 0.78rem; color: var(--text3); font-style: italic; }
+  table.conj .conj-note { font-size: 0.78rem; color: var(--text2); }
+  .form-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: rgba(124,106,247,0.12);
+    color: var(--accent1);
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent4);
+    margin: 24px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent4);
+  }
+
+  /* ── NOUN GRID ──────────────────────────────── */
+  .noun-category { margin-bottom: 28px; }
+  .noun-category-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .noun-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .noun-chip {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 110px;
+  }
+  .noun-chip .jp { font-size: 1.1rem; }
+  .noun-chip .rom { font-size: 0.75rem; }
+  .noun-chip .en  { font-size: 0.82rem; color: var(--text2); }
+
+  /* ── ADJ SECTION ────────────────────────────── */
+  .adj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .adj-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .adj-jp { font-family: var(--font-jp); font-size: 1.1rem; font-weight: 600; color: var(--accent5); }
+  .adj-type-i  { color: var(--accent4); }
+  .adj-type-na { color: var(--accent6); }
+  .adj-conj-box {
+    margin-top: 16px;
+    background: var(--bg3);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .adj-conj-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .adj-conj-form { width: 140px; font-size: 0.8rem; color: var(--text3); flex-shrink: 0; }
+  .adj-conj-ex { font-size: 0.9rem; }
+
+  /* ── ADVERB SECTION ─────────────────────────── */
+  .adverb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+  .adv-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .adv-jp { font-family: var(--font-jp); font-size: 1.05rem; font-weight: 600; color: var(--accent3); }
+  .adv-rom { font-size: 0.78rem; color: var(--text3); }
+  .adv-en { font-size: 0.88rem; color: var(--text2); }
+  .adv-ex { font-size: 0.82rem; color: var(--text3); margin-top: 4px; }
+
+  /* ── CASUAL vs FORMAL ───────────────────────── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .compare-col {
+    background: var(--bg3);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .compare-col.casual { border-top: 3px solid var(--accent3); }
+  .compare-col.formal { border-top: 3px solid var(--accent5); }
+  .compare-col h4 {
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .compare-col.casual h4 { color: var(--accent3); }
+  .compare-col.formal h4 { color: var(--accent5); }
+  .compare-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: baseline;
+  }
+  .compare-jp { font-family: var(--font-jp); font-size: 1rem; min-width: 110px; }
+  .compare-desc { font-size: 0.83rem; color: var(--text2); }
+  .particle-note {
+    background: var(--bg4);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text2);
+  }
+  .particle-note strong { color: var(--text); }
+
+  /* ── SENTENCE ENDING PARTICLES ──────────────── */
+  .ending-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .ending-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    min-width: 130px;
+  }
+  .ending-jp { font-family: var(--font-jp); font-size: 1.4rem; font-weight: 700; }
+  .ending-en { font-size: 0.82rem; color: var(--text2); margin: 4px 0; }
+  .ending-ex { font-size: 0.8rem; color: var(--text3); font-style: italic; }
+
+  /* ── EXERCISES ──────────────────────────────── */
+  .exercises { display: flex; flex-direction: column; gap: 24px; }
+  .exercise-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    transition: border-color 0.3s;
+  }
+  .exercise-card.correct { border-color: var(--correct); }
+  .exercise-card.wrong   { border-color: var(--wrong); }
+  .ex-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .ex-num {
+    background: rgba(124,106,247,0.2);
+    color: var(--accent1);
+    border-radius: 6px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .ex-en { font-size: 1.05rem; font-weight: 500; }
+  .ex-hint { font-size: 0.82rem; color: var(--text3); margin-bottom: 14px; }
+  .word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    min-height: 42px;
+    padding: 8px;
+    background: var(--bg4);
+    border-radius: 8px;
+    border: 1px dashed var(--border);
+  }
+  .word-bank.drop-target {
+    border-color: var(--accent1);
+    background: rgba(124,106,247,0.05);
+  }
+  .word-chip {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: var(--font-jp);
+    font-size: 0.95rem;
+    user-select: none;
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .word-chip .chip-rom { font-family: sans-serif; font-size: 0.68rem; color: var(--text3); font-style: italic; }
+  .word-chip:hover { background: var(--bg4); border-color: var(--accent1); transform: translateY(-1px); }
+  .word-chip.placed { background: rgba(124,106,247,0.12); border-color: rgba(124,106,247,0.4); }
+  .drop-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 52px;
+    padding: 10px;
+    background: var(--bg3);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+    align-items: center;
+  }
+  .drop-zone-label {
+    font-size: 0.78rem;
+    color: var(--text3);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .placed-chip {
+    background: rgba(124,106,247,0.15);
+    border: 1px solid rgba(124,106,247,0.35);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: var(--font-jp);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .placed-chip .chip-rom { font-family: sans-serif; font-size: 0.68rem; color: rgba(124,106,247,0.7); font-style: italic; }
+  .placed-chip:hover { background: rgba(247,106,138,0.12); border-color: var(--accent2); }
+  .ex-controls { display: flex; gap: 10px; align-items: center; }
+  .btn {
+    border: none;
+    border-radius: 7px;
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--accent1); color: #fff; }
+  .btn-primary:hover { background: #6b5de0; transform: translateY(-1px); }
+  .btn-secondary { background: var(--bg4); color: var(--text2); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--bg3); color: var(--text); }
+  .ex-result {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: none;
+    font-size: 0.9rem;
+  }
+  .ex-result.show { display: block; }
+  .ex-result.correct { background: rgba(76,175,114,0.12); border: 1px solid rgba(76,175,114,0.3); }
+  .ex-result.wrong   { background: rgba(247,83,74,0.10); border: 1px solid rgba(247,83,74,0.3); }
+  .result-icon { font-size: 1.2rem; margin-right: 6px; }
+  .result-answer { margin-top: 8px; font-size: 0.87rem; color: var(--text2); }
+  .result-answer .jp { font-family: var(--font-jp); color: var(--text); }
+  .result-explanation { margin-top: 8px; color: var(--text3); font-size: 0.83rem; line-height: 1.6; }
+
+  /* ── SCORE BAR ──────────────────────────────── */
+  .score-bar {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .score-display { font-size: 1.4rem; font-weight: 700; color: var(--accent4); }
+  .score-label { font-size: 0.85rem; color: var(--text2); }
+  .reset-all { margin-left: auto; }
+
+  /* ── TIPS ───────────────────────────────────── */
+  .tip-box {
+    background: rgba(124,106,247,0.08);
+    border: 1px solid rgba(124,106,247,0.2);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: var(--text2);
+    margin: 16px 0;
+  }
+  .tip-box strong { color: var(--accent1); }
+  .tip-box.gold {
+    background: rgba(247,196,106,0.08);
+    border-color: rgba(247,196,106,0.25);
+  }
+  .tip-box.gold strong { color: var(--accent4); }
+  .tip-box.teal {
+    background: rgba(106,247,196,0.08);
+    border-color: rgba(106,247,196,0.2);
+  }
+  .tip-box.teal strong { color: var(--accent3); }
+
+  /* ── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 640px) {
+    nav { padding: 6px 10px; }
+    nav button { padding: 6px 10px; font-size: 0.78rem; }
+    .compare-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.6rem; }
+    .sov-diagram { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── MISC ───────────────────────────────────── */
+  .highlight { color: var(--accent1); font-weight: 600; }
+  .highlight.red { color: var(--accent2); }
+  .highlight.teal { color: var(--accent3); }
+  .highlight.gold { color: var(--accent4); }
+  .highlight.blue { color: var(--accent5); }
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .inline-ex {
+    display: inline-flex;
+    gap: 6px;
+    background: var(--bg4);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.88rem;
+    align-items: baseline;
+  }
+  .collapsible-trigger {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .collapsible-trigger::after {
+    content: '▾';
+    font-size: 1rem;
+    transition: transform 0.2s;
+    color: var(--text3);
+  }
+  .collapsible-trigger.collapsed::after { transform: rotate(-90deg); }
+  .collapsible-body { overflow: hidden; transition: max-height 0.3s ease; }
+  .collapsible-body.collapsed { max-height: 0 !important; }
+
+  /* progress dots */
+  .progress-dots {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--bg4);
+    border: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  .dot.correct { background: var(--correct); border-color: var(--correct); }
+  .dot.wrong   { background: var(--wrong); border-color: var(--wrong); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Japanese Language Guide</h1>
+  <p>Real, everyday conversational Japanese — not textbook stiff</p>
+  <span class="badge">Beginner → Conversational</span>
+</header>
+
+<nav id="main-nav">
+  <button class="active" data-tab="structure">① Sentence Structure</button>
+  <button data-tab="verbs">② Essential Verbs</button>
+  <button data-tab="conjugation">③ Conjugation</button>
+  <button data-tab="nouns">④ Nouns</button>
+  <button data-tab="adjectives">⑤ Adjectives</button>
+  <button data-tab="adverbs">⑥ Adverbs &amp; Connectors</button>
+  <button data-tab="casual">⑦ Casual vs Formal</button>
+  <button data-tab="exercises">⑧ Build the Sentence</button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════
+     TAB 1 — SENTENCE STRUCTURE
+══════════════════════════════════════════════ -->
+<section class="tab-panel active" id="tab-structure">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(124,106,247,0.15)">🏗️</div>
+    Sentence Structure
+  </div>
+  <p class="section-desc">Japanese is SOV — Subject → Object → Verb. Particles are the glue that show what each word is doing.</p>
+
+  <!-- SOV Diagram -->
+  <div class="card">
+    <div class="card-title">The Big Picture: Subject → Object → Verb</div>
+    <div class="sov-diagram">
+      <div class="sov-chunk subject">
+        <span class="jp">ぼく</span>
+        <span class="rom">boku</span>
+        <span class="role">subject</span>
+      </div>
+      <div class="sov-chunk particle">
+        <span class="jp">は</span>
+        <span class="rom">wa</span>
+        <span class="role">topic marker</span>
+      </div>
+      <div class="sov-chunk object">
+        <span class="jp">ラーメン</span>
+        <span class="rom">rāmen</span>
+        <span class="role">object</span>
+      </div>
+      <div class="sov-chunk particle">
+        <span class="jp">を</span>
+        <span class="rom">wo</span>
+        <span class="role">object marker</span>
+      </div>
+      <div class="sov-chunk verb">
+        <span class="jp">食べる</span>
+        <span class="rom">taberu</span>
+        <span class="role">verb (eat)</span>
+      </div>
+    </div>
+    <div class="en" style="margin-top:4px;">"I eat ramen."</div>
+
+    <div class="tip-box" style="margin-top:16px;">
+      <strong>Key insight:</strong> In casual speech, particles and even subjects get dropped all the time.
+      Just <span class="jp" style="font-size:1rem;">ラーメン食べる？</span> <span class="rom">(rāmen taberu?)</span> = "Wanna eat ramen?" is totally normal.
+    </div>
+  </div>
+
+  <!-- Particles -->
+  <div class="card">
+    <div class="card-title">The Core Particles</div>
+    <div class="particle-grid">
+
+      <div class="particle-card">
+        <div class="particle-label jp">は</div>
+        <div class="particle-rom">wa</div>
+        <div class="particle-meaning">Topic marker — "as for X" / "speaking of X." Signals what you're talking about.</div>
+        <div class="particle-ex">
+          <div><span class="jp">ぼくは学生だ</span></div>
+          <div class="rom">boku wa gakusei da</div>
+          <div class="en">"I'm a student."</div>
+        </div>
+      </div>
+
+      <div class="particle-card ga">
+        <div class="particle-label jp">が</div>
+        <div class="particle-rom">ga</div>
+        <div class="particle-meaning">Subject marker — specifically identifies <em>who/what</em> does the action. More emphatic than は.</div>
+        <div class="particle-ex">
+          <div><span class="jp">だれが来た？</span></div>
+          <div class="rom">dare ga kita?</div>
+          <div class="en">"Who came?"</div>
+        </div>
+      </div>
+
+      <div class="particle-card wo">
+        <div class="particle-label jp">を</div>
+        <div class="particle-rom">wo (o)</div>
+        <div class="particle-meaning">Direct object marker — marks what receives the action of the verb.</div>
+        <div class="particle-ex">
+          <div><span class="jp">映画を見る</span></div>
+          <div class="rom">eiga wo miru</div>
+          <div class="en">"to watch a movie"</div>
+        </div>
+      </div>
+
+      <div class="particle-card ni">
+        <div class="particle-label jp">に</div>
+        <div class="particle-rom">ni</div>
+        <div class="particle-meaning">Direction / time / location (existence). "to / at / in / on" for destinations and when things exist.</div>
+        <div class="particle-ex">
+          <div><span class="jp">東京に行く</span></div>
+          <div class="rom">tōkyō ni iku</div>
+          <div class="en">"go to Tokyo"</div>
+          <div style="margin-top:6px;"><span class="jp">3時に会う</span></div>
+          <div class="rom">sanji ni au</div>
+          <div class="en">"meet at 3 o'clock"</div>
+        </div>
+      </div>
+
+      <div class="particle-card de">
+        <div class="particle-label jp">で</div>
+        <div class="particle-rom">de</div>
+        <div class="particle-meaning">Location of action / means / method. "at (doing something) / by / with / using"</div>
+        <div class="particle-ex">
+          <div><span class="jp">カフェで勉強する</span></div>
+          <div class="rom">kafe de benkyō suru</div>
+          <div class="en">"study at a café"</div>
+          <div style="margin-top:6px;"><span class="jp">電車で行く</span></div>
+          <div class="rom">densha de iku</div>
+          <div class="en">"go by train"</div>
+        </div>
+      </div>
+
+      <div class="particle-card to">
+        <div class="particle-label jp">と</div>
+        <div class="particle-rom">to</div>
+        <div class="particle-meaning">"And" (linking nouns) / "with" (together with someone).</div>
+        <div class="particle-ex">
+          <div><span class="jp">友達と遊ぶ</span></div>
+          <div class="rom">tomodachi to asobu</div>
+          <div class="en">"hang out with friends"</div>
+          <div style="margin-top:6px;"><span class="jp">コーヒーとケーキ</span></div>
+          <div class="rom">kōhī to kēki</div>
+          <div class="en">"coffee and cake"</div>
+        </div>
+      </div>
+
+      <div class="particle-card mo">
+        <div class="particle-label jp">も</div>
+        <div class="particle-rom">mo</div>
+        <div class="particle-meaning">"Also / too / either." Replaces は or が to mean "also."</div>
+        <div class="particle-ex">
+          <div><span class="jp">ぼくも行く</span></div>
+          <div class="rom">boku mo iku</div>
+          <div class="en">"I'm going too."</div>
+        </div>
+      </div>
+
+      <div class="particle-card ka">
+        <div class="particle-label jp">か</div>
+        <div class="particle-rom">ka</div>
+        <div class="particle-meaning">Question marker — turns any sentence into a question. In casual speech often just rising intonation instead.</div>
+        <div class="particle-ex">
+          <div><span class="jp">行くか？</span></div>
+          <div class="rom">iku ka?</div>
+          <div class="en">"Are you going?"</div>
+        </div>
+      </div>
+
+      <div class="particle-card" style="border-left-color:#e06af7">
+        <div class="particle-label jp" style="color:#e06af7">の</div>
+        <div class="particle-rom">no</div>
+        <div class="particle-meaning">Possessive connector. "X's Y" = X の Y. Also nominalizes verbs (turns verb → noun-like).</div>
+        <div class="particle-ex">
+          <div><span class="jp">ぼくの友達</span></div>
+          <div class="rom">boku no tomodachi</div>
+          <div class="en">"my friend"</div>
+          <div style="margin-top:6px;"><span class="jp">食べるのが好き</span></div>
+          <div class="rom">taberu no ga suki</div>
+          <div class="en">"I like eating"</div>
+        </div>
+      </div>
+
+      <div class="particle-card" style="border-left-color:#f76a6a">
+        <div class="particle-label jp" style="color:#f76a6a">から / まで</div>
+        <div class="particle-rom">kara / made</div>
+        <div class="particle-meaning">"From / since" and "until / up to." Often paired together.</div>
+        <div class="particle-ex">
+          <div><span class="jp">9時から5時まで</span></div>
+          <div class="rom">kuji kara goji made</div>
+          <div class="en">"from 9am to 5pm"</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- で vs に distinction -->
+  <div class="card">
+    <div class="card-title">に vs で — The Trickiest Pair</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;border-top:3px solid var(--accent4);">
+        <div style="font-weight:600;color:var(--accent4);margin-bottom:8px;font-family:var(--font-jp);font-size:1.1rem;">に</div>
+        <div style="font-size:0.87rem;color:var(--text2);margin-bottom:10px;">Use に for <strong style="color:var(--text)">existence / destination</strong> — "where something IS" or "where you're GOING TO"</div>
+        <div style="font-size:0.85rem;background:var(--bg4);border-radius:6px;padding:8px;">
+          <div><span class="jp">学校にいる</span> <span class="rom">— gakkō ni iru</span></div>
+          <div class="en">"(I) am at school" (existing there)</div>
+          <div style="margin-top:6px;"><span class="jp">図書館に行く</span> <span class="rom">— toshokan ni iku</span></div>
+          <div class="en">"go to the library"</div>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;border-top:3px solid var(--accent5);">
+        <div style="font-weight:600;color:var(--accent5);margin-bottom:8px;font-family:var(--font-jp);font-size:1.1rem;">で</div>
+        <div style="font-size:0.87rem;color:var(--text2);margin-bottom:10px;">Use で for <strong style="color:var(--text)">action location / means</strong> — "where you're DOING something" or "using what"</div>
+        <div style="font-size:0.85rem;background:var(--bg4);border-radius:6px;padding:8px;">
+          <div><span class="jp">学校で勉強する</span> <span class="rom">— gakkō de benkyō suru</span></div>
+          <div class="en">"study at school" (doing an action there)</div>
+          <div style="margin-top:6px;"><span class="jp">バスで来る</span> <span class="rom">— basu de kuru</span></div>
+          <div class="en">"come by bus"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sentence patterns -->
+  <div class="card">
+    <div class="card-title">Common Sentence Patterns</div>
+
+    <div class="section-sub">X は Y だ / です — "X is Y"</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:12px 16px;">
+        <div><span class="jp" style="font-size:1rem;">これはおいしい</span> <span class="rom">— kore wa oishii</span></div>
+        <div class="en">"This is delicious." (casual)</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px 16px;">
+        <div><span class="jp" style="font-size:1rem;">ここは静かじゃない</span> <span class="rom">— koko wa shizuka ja nai</span></div>
+        <div class="en">"This place isn't quiet." (casual negative)</div>
+      </div>
+    </div>
+
+    <div class="section-sub">V-たい — "I want to V"</div>
+    <div style="background:var(--bg3);border-radius:8px;padding:12px 16px;">
+      <div><span class="jp" style="font-size:1rem;">ラーメン食べたい</span> <span class="rom">— rāmen tabetai</span></div>
+      <div class="en">"I wanna eat ramen."</div>
+    </div>
+
+    <div class="section-sub">V-て / V-てる — progressive / connected action</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:12px 16px;">
+        <div><span class="jp" style="font-size:1rem;">音楽聞いてる</span> <span class="rom">— ongaku kiiteru</span></div>
+        <div class="en">"I'm listening to music." (て + いる → てる in casual)</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px 16px;">
+        <div><span class="jp" style="font-size:1rem;">食べてから寝る</span> <span class="rom">— tabete kara neru</span></div>
+        <div class="en">"I'll sleep after eating." (て-form connects clauses)</div>
+      </div>
+    </div>
+
+    <div class="section-sub">〜んだ / 〜んだけど — explaining / softening</div>
+    <div style="background:var(--bg3);border-radius:8px;padding:12px 16px;margin-bottom:8px;">
+      <div><span class="jp" style="font-size:1rem;">ちょっと忙しいんだ</span> <span class="rom">— chotto isogashii n da</span></div>
+      <div class="en">"The thing is, I'm a bit busy." (んだ gives reason/explanation nuance)</div>
+    </div>
+    <div class="tip-box">
+      <strong>んだ / んだけど</strong> is extremely common in casual speech. It softens statements, implies you're providing context, and makes things sound less blunt. If you can use one Japanese phrase a lot, it's this one.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 2 — ESSENTIAL VERBS
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-verbs">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(106,247,196,0.12)">⚡</div>
+    Essential Verbs (Dictionary Form)
+  </div>
+  <p class="section-desc">40+ most common everyday verbs. Green = Ichidan (ru-verb), Purple = Godan (u-verb), Pink = Irregular. Dictionary form is the plain present/future.</p>
+
+  <div class="tip-box teal">
+    <strong>Quick rule:</strong> Godan (u-verbs) end in a consonant + u. Ichidan (ru-verbs) end in -iru or -eru. But watch out — 帰る (kaeru), 切る (kiru), 知る (shiru) LOOK like ichidan but are actually godan!
+  </div>
+
+  <div class="card">
+    <div class="card-title">Being & Having</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">ある</div>
+        <div class="verb-info">
+          <div class="verb-rom">aru</div>
+          <div class="verb-en">to exist / to have (inanimate things)</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">いる</div>
+        <div class="verb-info">
+          <div class="verb-rom">iru</div>
+          <div class="verb-en">to exist / to be (living things)</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">する</div>
+        <div class="verb-info">
+          <div class="verb-rom">suru</div>
+          <div class="verb-en">to do</div>
+          <span class="verb-type type-irr">Irregular</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">なる</div>
+        <div class="verb-info">
+          <div class="verb-rom">naru</div>
+          <div class="verb-en">to become</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Movement</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">行く</div>
+        <div class="verb-info">
+          <div class="verb-rom">iku</div>
+          <div class="verb-en">to go</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">来る</div>
+        <div class="verb-info">
+          <div class="verb-rom">kuru</div>
+          <div class="verb-en">to come</div>
+          <span class="verb-type type-irr">Irregular</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">帰る</div>
+        <div class="verb-info">
+          <div class="verb-rom">kaeru</div>
+          <div class="verb-en">to return (home)</div>
+          <span class="verb-type type-godan">Godan ⚠️</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">出る</div>
+        <div class="verb-info">
+          <div class="verb-rom">deru</div>
+          <div class="verb-en">to leave / exit / come out</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">入る</div>
+        <div class="verb-info">
+          <div class="verb-rom">hairu</div>
+          <div class="verb-en">to enter</div>
+          <span class="verb-type type-godan">Godan ⚠️</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">乗る</div>
+        <div class="verb-info">
+          <div class="verb-rom">noru</div>
+          <div class="verb-en">to ride / board (transport)</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">歩く</div>
+        <div class="verb-info">
+          <div class="verb-rom">aruku</div>
+          <div class="verb-en">to walk</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">走る</div>
+        <div class="verb-info">
+          <div class="verb-rom">hashiru</div>
+          <div class="verb-en">to run</div>
+          <span class="verb-type type-godan">Godan ⚠️</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Eating & Drinking</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">食べる</div>
+        <div class="verb-info">
+          <div class="verb-rom">taberu</div>
+          <div class="verb-en">to eat</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">飲む</div>
+        <div class="verb-info">
+          <div class="verb-rom">nomu</div>
+          <div class="verb-en">to drink</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">作る</div>
+        <div class="verb-info">
+          <div class="verb-rom">tsukuru</div>
+          <div class="verb-en">to make / create / cook</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">買う</div>
+        <div class="verb-info">
+          <div class="verb-rom">kau</div>
+          <div class="verb-en">to buy</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Communication & Senses</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">言う</div>
+        <div class="verb-info">
+          <div class="verb-rom">iu</div>
+          <div class="verb-en">to say</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">話す</div>
+        <div class="verb-info">
+          <div class="verb-rom">hanasu</div>
+          <div class="verb-en">to speak / talk</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">聞く</div>
+        <div class="verb-info">
+          <div class="verb-rom">kiku</div>
+          <div class="verb-en">to listen / ask</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">見る</div>
+        <div class="verb-info">
+          <div class="verb-rom">miru</div>
+          <div class="verb-en">to see / watch / look</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">読む</div>
+        <div class="verb-info">
+          <div class="verb-rom">yomu</div>
+          <div class="verb-en">to read</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">書く</div>
+        <div class="verb-info">
+          <div class="verb-rom">kaku</div>
+          <div class="verb-en">to write</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">送る</div>
+        <div class="verb-info">
+          <div class="verb-rom">okuru</div>
+          <div class="verb-en">to send</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">連絡する</div>
+        <div class="verb-info">
+          <div class="verb-rom">renraku suru</div>
+          <div class="verb-en">to contact / get in touch</div>
+          <span class="verb-type type-irr">Suru-comp.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Thinking & Feeling</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">思う</div>
+        <div class="verb-info">
+          <div class="verb-rom">omou</div>
+          <div class="verb-en">to think / feel (opinion)</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">わかる</div>
+        <div class="verb-info">
+          <div class="verb-rom">wakaru</div>
+          <div class="verb-en">to understand / get it</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">知る</div>
+        <div class="verb-info">
+          <div class="verb-rom">shiru</div>
+          <div class="verb-en">to know (a fact)</div>
+          <span class="verb-type type-godan">Godan ⚠️</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">感じる</div>
+        <div class="verb-info">
+          <div class="verb-rom">kanjiru</div>
+          <div class="verb-en">to feel (physically/emotionally)</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">忘れる</div>
+        <div class="verb-info">
+          <div class="verb-rom">wasureru</div>
+          <div class="verb-en">to forget</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">覚える</div>
+        <div class="verb-info">
+          <div class="verb-rom">oboeru</div>
+          <div class="verb-en">to remember / memorize</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Daily Life & Social</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">寝る</div>
+        <div class="verb-info">
+          <div class="verb-rom">neru</div>
+          <div class="verb-en">to sleep / go to bed</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">起きる</div>
+        <div class="verb-info">
+          <div class="verb-rom">okiru</div>
+          <div class="verb-en">to wake up</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">会う</div>
+        <div class="verb-info">
+          <div class="verb-rom">au</div>
+          <div class="verb-en">to meet / see (someone)</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">遊ぶ</div>
+        <div class="verb-info">
+          <div class="verb-rom">asobu</div>
+          <div class="verb-en">to play / hang out</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">働く</div>
+        <div class="verb-info">
+          <div class="verb-rom">hataraku</div>
+          <div class="verb-en">to work</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">待つ</div>
+        <div class="verb-info">
+          <div class="verb-rom">matsu</div>
+          <div class="verb-en">to wait</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">休む</div>
+        <div class="verb-info">
+          <div class="verb-rom">yasumu</div>
+          <div class="verb-en">to rest / take a break</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">手伝う</div>
+        <div class="verb-info">
+          <div class="verb-rom">tetsudau</div>
+          <div class="verb-en">to help</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">頼む</div>
+        <div class="verb-info">
+          <div class="verb-rom">tanomu</div>
+          <div class="verb-en">to ask / request / order (food)</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">貸す</div>
+        <div class="verb-info">
+          <div class="verb-rom">kasu</div>
+          <div class="verb-en">to lend</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">借りる</div>
+        <div class="verb-info">
+          <div class="verb-rom">kariru</div>
+          <div class="verb-en">to borrow</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">使う</div>
+        <div class="verb-info">
+          <div class="verb-rom">tsukau</div>
+          <div class="verb-en">to use</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Learning & Work</div>
+    <div class="verb-grid">
+      <div class="verb-item">
+        <div class="verb-jp">教える</div>
+        <div class="verb-info">
+          <div class="verb-rom">oshieru</div>
+          <div class="verb-en">to teach / tell</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">習う</div>
+        <div class="verb-info">
+          <div class="verb-rom">narau</div>
+          <div class="verb-en">to learn (from someone)</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">勉強する</div>
+        <div class="verb-info">
+          <div class="verb-rom">benkyō suru</div>
+          <div class="verb-en">to study</div>
+          <span class="verb-type type-irr">Suru-comp.</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">練習する</div>
+        <div class="verb-info">
+          <div class="verb-rom">renshū suru</div>
+          <div class="verb-en">to practice</div>
+          <span class="verb-type type-irr">Suru-comp.</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">売る</div>
+        <div class="verb-info">
+          <div class="verb-rom">uru</div>
+          <div class="verb-en">to sell</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">始める</div>
+        <div class="verb-info">
+          <div class="verb-rom">hajimeru</div>
+          <div class="verb-en">to start / begin</div>
+          <span class="verb-type type-ichidan">Ichidan</span>
+        </div>
+      </div>
+      <div class="verb-item">
+        <div class="verb-jp">終わる</div>
+        <div class="verb-info">
+          <div class="verb-rom">owaru</div>
+          <div class="verb-en">to end / finish</div>
+          <span class="verb-type type-godan">Godan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 3 — CONJUGATION
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-conjugation">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(247,196,106,0.12)">🔀</div>
+    Conjugation Guide
+  </div>
+  <p class="section-desc">The complete system. Japanese verbs change based on their group — learn the group, learn the pattern.</p>
+
+  <div class="tip-box gold">
+    <strong>The three groups:</strong>
+    <strong style="color:var(--accent1)"> Godan (U-verbs)</strong> — the big group, end in う く す つ ぬ ぶ む る (non-ichidan) |
+    <strong style="color:var(--accent3)"> Ichidan (Ru-verbs)</strong> — end in -iru or -eru, just drop る |
+    <strong style="color:var(--accent2)"> Irregular</strong> — only する and くる
+  </div>
+
+  <!-- How to form each group -->
+  <div class="card">
+    <div class="card-title">How to Identify the Verb Stem</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:16px;border-top:3px solid var(--accent1);">
+        <div style="color:var(--accent1);font-weight:700;margin-bottom:8px;">Godan (U-verbs)</div>
+        <div style="font-size:0.87rem;color:var(--text2);margin-bottom:10px;">Change the final う-sound vowel to get different forms</div>
+        <div style="font-size:0.85rem;">
+          <div>書く → stem: <span style="color:var(--accent1)">書</span></div>
+          <div class="rom">kaku → ka-</div>
+          <div style="margin-top:6px;">飲む → stem: <span style="color:var(--accent1)">飲</span></div>
+          <div class="rom">nomu → nom-</div>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:16px;border-top:3px solid var(--accent3);">
+        <div style="color:var(--accent3);font-weight:700;margin-bottom:8px;">Ichidan (Ru-verbs)</div>
+        <div style="font-size:0.87rem;color:var(--text2);margin-bottom:10px;">Drop the る — what remains is the stem</div>
+        <div style="font-size:0.85rem;">
+          <div>食べ<span style="color:var(--accent2)">る</span> → stem: <span style="color:var(--accent3)">食べ</span></div>
+          <div class="rom">taberu → tabe-</div>
+          <div style="margin-top:6px;">見<span style="color:var(--accent2)">る</span> → stem: <span style="color:var(--accent3)">見</span></div>
+          <div class="rom">miru → mi-</div>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:16px;border-top:3px solid var(--accent2);">
+        <div style="color:var(--accent2);font-weight:700;margin-bottom:8px;">Irregular — just memorize</div>
+        <div style="font-size:0.87rem;color:var(--text2);margin-bottom:10px;">Only 2 fully irregular verbs</div>
+        <div style="font-size:0.85rem;">
+          <div><span class="jp">する</span> suru → "to do"</div>
+          <div><span class="jp">来る</span> kuru → "to come"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master Conjugation Table -->
+  <div class="card">
+    <div class="card-title">Master Conjugation Table</div>
+    <div class="conj-table-wrap">
+      <table class="conj">
+        <thead>
+          <tr>
+            <th>Form</th>
+            <th>Godan example: 書く (kaku)</th>
+            <th>Godan example: 飲む (nomu)</th>
+            <th>Godan example: 待つ (matsu)</th>
+            <th>Ichidan: 食べる (taberu)</th>
+            <th>Irregular: する (suru)</th>
+            <th>Irregular: 来る (kuru)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="form-name">Plain Present/<br>Future</div><div class="form-badge">dictionary</div></td>
+            <td><div class="conj-jp">書く</div><div class="conj-rom">kaku</div></td>
+            <td><div class="conj-jp">飲む</div><div class="conj-rom">nomu</div></td>
+            <td><div class="conj-jp">待つ</div><div class="conj-rom">matsu</div></td>
+            <td><div class="conj-jp">食べる</div><div class="conj-rom">taberu</div></td>
+            <td><div class="conj-jp">する</div><div class="conj-rom">suru</div></td>
+            <td><div class="conj-jp">来る</div><div class="conj-rom">kuru</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Plain Past</div><div class="form-badge">〜た</div></td>
+            <td><div class="conj-jp">書いた</div><div class="conj-rom">kaita</div></td>
+            <td><div class="conj-jp">飲んだ</div><div class="conj-rom">nonda</div></td>
+            <td><div class="conj-jp">待った</div><div class="conj-rom">matta</div></td>
+            <td><div class="conj-jp">食べた</div><div class="conj-rom">tabeta</div></td>
+            <td><div class="conj-jp">した</div><div class="conj-rom">shita</div></td>
+            <td><div class="conj-jp">来た</div><div class="conj-rom">kita</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Plain Negative</div><div class="form-badge">〜ない</div></td>
+            <td><div class="conj-jp">書かない</div><div class="conj-rom">kakanai</div></td>
+            <td><div class="conj-jp">飲まない</div><div class="conj-rom">nomanai</div></td>
+            <td><div class="conj-jp">待たない</div><div class="conj-rom">matanai</div></td>
+            <td><div class="conj-jp">食べない</div><div class="conj-rom">tabenai</div></td>
+            <td><div class="conj-jp">しない</div><div class="conj-rom">shinai</div></td>
+            <td><div class="conj-jp">来ない</div><div class="conj-rom">konai</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Past Negative</div><div class="form-badge">〜なかった</div></td>
+            <td><div class="conj-jp">書かなかった</div><div class="conj-rom">kakanakatta</div></td>
+            <td><div class="conj-jp">飲まなかった</div><div class="conj-rom">nomanakatta</div></td>
+            <td><div class="conj-jp">待たなかった</div><div class="conj-rom">matanakatta</div></td>
+            <td><div class="conj-jp">食べなかった</div><div class="conj-rom">tabenakatta</div></td>
+            <td><div class="conj-jp">しなかった</div><div class="conj-rom">shinakatta</div></td>
+            <td><div class="conj-jp">来なかった</div><div class="conj-rom">konakatta</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Te-form</div><div class="form-badge">〜て / 〜で</div></td>
+            <td><div class="conj-jp">書いて</div><div class="conj-rom">kaite</div></td>
+            <td><div class="conj-jp">飲んで</div><div class="conj-rom">nonde</div></td>
+            <td><div class="conj-jp">待って</div><div class="conj-rom">matte</div></td>
+            <td><div class="conj-jp">食べて</div><div class="conj-rom">tabete</div></td>
+            <td><div class="conj-jp">して</div><div class="conj-rom">shite</div></td>
+            <td><div class="conj-jp">来て</div><div class="conj-rom">kite</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Polite Present</div><div class="form-badge">〜ます</div></td>
+            <td><div class="conj-jp">書きます</div><div class="conj-rom">kakimasu</div></td>
+            <td><div class="conj-jp">飲みます</div><div class="conj-rom">nomimasu</div></td>
+            <td><div class="conj-jp">待ちます</div><div class="conj-rom">machimasu</div></td>
+            <td><div class="conj-jp">食べます</div><div class="conj-rom">tabemasu</div></td>
+            <td><div class="conj-jp">します</div><div class="conj-rom">shimasu</div></td>
+            <td><div class="conj-jp">来ます</div><div class="conj-rom">kimasu</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Polite Neg</div><div class="form-badge">〜ません</div></td>
+            <td><div class="conj-jp">書きません</div><div class="conj-rom">kakimasen</div></td>
+            <td><div class="conj-jp">飲みません</div><div class="conj-rom">nomimasen</div></td>
+            <td><div class="conj-jp">待ちません</div><div class="conj-rom">machimasen</div></td>
+            <td><div class="conj-jp">食べません</div><div class="conj-rom">tabemasen</div></td>
+            <td><div class="conj-jp">しません</div><div class="conj-rom">shimasen</div></td>
+            <td><div class="conj-jp">来ません</div><div class="conj-rom">kimasen</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Polite Past</div><div class="form-badge">〜ました</div></td>
+            <td><div class="conj-jp">書きました</div><div class="conj-rom">kakimashita</div></td>
+            <td><div class="conj-jp">飲みました</div><div class="conj-rom">nomimashita</div></td>
+            <td><div class="conj-jp">待ちました</div><div class="conj-rom">machimashita</div></td>
+            <td><div class="conj-jp">食べました</div><div class="conj-rom">tabemashita</div></td>
+            <td><div class="conj-jp">しました</div><div class="conj-rom">shimashita</div></td>
+            <td><div class="conj-jp">来ました</div><div class="conj-rom">kimashita</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Want to</div><div class="form-badge">〜たい</div></td>
+            <td><div class="conj-jp">書きたい</div><div class="conj-rom">kakitai</div></td>
+            <td><div class="conj-jp">飲みたい</div><div class="conj-rom">nomitai</div></td>
+            <td><div class="conj-jp">待ちたい</div><div class="conj-rom">machitai</div></td>
+            <td><div class="conj-jp">食べたい</div><div class="conj-rom">tabetai</div></td>
+            <td><div class="conj-jp">したい</div><div class="conj-rom">shitai</div></td>
+            <td><div class="conj-jp">来たい</div><div class="conj-rom">kitai</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Can / Able to</div><div class="form-badge">potential</div></td>
+            <td><div class="conj-jp">書ける</div><div class="conj-rom">kakeru</div></td>
+            <td><div class="conj-jp">飲める</div><div class="conj-rom">nomeru</div></td>
+            <td><div class="conj-jp">待てる</div><div class="conj-rom">materu</div></td>
+            <td><div class="conj-jp">食べられる</div><div class="conj-rom">taberareru</div></td>
+            <td><div class="conj-jp">できる</div><div class="conj-rom">dekiru</div></td>
+            <td><div class="conj-jp">来られる</div><div class="conj-rom">korareru</div></td>
+          </tr>
+          <tr>
+            <td><div class="form-name">Progressive</div><div class="form-badge">〜ている / 〜てる</div></td>
+            <td><div class="conj-jp">書いてる</div><div class="conj-rom">kaiteru</div></td>
+            <td><div class="conj-jp">飲んでる</div><div class="conj-rom">nonderu</div></td>
+            <td><div class="conj-jp">待ってる</div><div class="conj-rom">matteru</div></td>
+            <td><div class="conj-jp">食べてる</div><div class="conj-rom">tabeteru</div></td>
+            <td><div class="conj-jp">してる</div><div class="conj-rom">shiteru</div></td>
+            <td><div class="conj-jp">来てる</div><div class="conj-rom">kiteru</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Godan te-form cheat sheet -->
+  <div class="card">
+    <div class="card-title">Godan Te-Form Cheat Sheet — The Sound Change Rules</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;">
+        <div style="color:var(--accent4);font-weight:700;margin-bottom:6px;">く → いて / ぐ → いで</div>
+        <div style="font-size:0.85rem;"><span class="jp">書く → 書いて</span> kaku → kaite</div>
+        <div style="font-size:0.85rem;"><span class="jp">泳ぐ → 泳いで</span> oyogu → oyoide</div>
+        <div style="font-size:0.78rem;color:var(--text3);margin-top:4px;">⚠️ Exception: 行く → 行って (ikte → itte)</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;">
+        <div style="color:var(--accent4);font-weight:700;margin-bottom:6px;">す → して</div>
+        <div style="font-size:0.85rem;"><span class="jp">話す → 話して</span> hanasu → hanashite</div>
+        <div style="font-size:0.85rem;"><span class="jp">貸す → 貸して</span> kasu → kashite</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;">
+        <div style="color:var(--accent4);font-weight:700;margin-bottom:6px;">つ/る/う → って</div>
+        <div style="font-size:0.85rem;"><span class="jp">待つ → 待って</span> matsu → matte</div>
+        <div style="font-size:0.85rem;"><span class="jp">帰る → 帰って</span> kaeru → kaette</div>
+        <div style="font-size:0.85rem;"><span class="jp">買う → 買って</span> kau → katte</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;">
+        <div style="color:var(--accent4);font-weight:700;margin-bottom:6px;">む/ぶ/ぬ → んで</div>
+        <div style="font-size:0.85rem;"><span class="jp">飲む → 飲んで</span> nomu → nonde</div>
+        <div style="font-size:0.85rem;"><span class="jp">遊ぶ → 遊んで</span> asobu → asonde</div>
+        <div style="font-size:0.85rem;"><span class="jp">死ぬ → 死んで</span> shinu → shinde</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Useful te-form patterns -->
+  <div class="card">
+    <div class="card-title">Te-Form Power Patterns</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="color:var(--accent3);font-weight:600;margin-bottom:8px;">〜ている / 〜てる — Ongoing / State</div>
+        <div style="font-size:0.85rem;"><span class="jp">食べている</span> = "is eating" / "eats (habitually)"</div>
+        <div style="font-size:0.85rem;"><span class="jp">結婚している</span> = "is married" (state)</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="color:var(--accent3);font-weight:600;margin-bottom:8px;">〜てください — Please do</div>
+        <div style="font-size:0.85rem;"><span class="jp">待ってください</span> = "Please wait"</div>
+        <div style="font-size:0.85rem;"><span class="jp">ゆっくり話してください</span> = "Please speak slowly"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="color:var(--accent3);font-weight:600;margin-bottom:8px;">〜てもいい — It's OK to / May I?</div>
+        <div style="font-size:0.85rem;"><span class="jp">食べてもいい？</span> = "Can I eat this?"</div>
+        <div style="font-size:0.85rem;"><span class="jp">ここに座ってもいいですか？</span> = "May I sit here?"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="color:var(--accent3);font-weight:600;margin-bottom:8px;">〜てから — After doing</div>
+        <div style="font-size:0.85rem;"><span class="jp">食べてから行く</span> = "go after eating"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="color:var(--accent3);font-weight:600;margin-bottom:8px;">〜てみる — Try doing</div>
+        <div style="font-size:0.85rem;"><span class="jp">食べてみて</span> = "Try eating it"</div>
+        <div style="font-size:0.85rem;"><span class="jp">やってみる</span> = "I'll give it a try"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="color:var(--accent3);font-weight:600;margin-bottom:8px;">〜てしまう / 〜ちゃう — Ended up / regret</div>
+        <div style="font-size:0.85rem;"><span class="jp">食べちゃった</span> = "I ate it all (oops)"</div>
+        <div style="font-size:0.85rem;"><span class="jp">忘れちゃった</span> = "I totally forgot"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 4 — NOUNS
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-nouns">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(106,184,247,0.12)">📦</div>
+    Everyday Nouns
+  </div>
+  <p class="section-desc">Japanese nouns don't change form — no plural, no gender, no articles. Just the word. Context does the work.</p>
+
+  <div class="noun-category">
+    <div class="noun-category-title">People</div>
+    <div class="noun-grid">
+      <div class="noun-chip"><span class="jp">人</span><span class="rom">hito</span><span class="en">person</span></div>
+      <div class="noun-chip"><span class="jp">友達</span><span class="rom">tomodachi</span><span class="en">friend</span></div>
+      <div class="noun-chip"><span class="jp">先生</span><span class="rom">sensei</span><span class="en">teacher</span></div>
+      <div class="noun-chip"><span class="jp">学生</span><span class="rom">gakusei</span><span class="en">student</span></div>
+      <div class="noun-chip"><span class="jp">家族</span><span class="rom">kazoku</span><span class="en">family</span></div>
+      <div class="noun-chip"><span class="jp">親</span><span class="rom">oya</span><span class="en">parent(s)</span></div>
+      <div class="noun-chip"><span class="jp">彼氏</span><span class="rom">kareshi</span><span class="en">boyfriend</span></div>
+      <div class="noun-chip"><span class="jp">彼女</span><span class="rom">kanojo</span><span class="en">girlfriend / she</span></div>
+      <div class="noun-chip"><span class="jp">みんな</span><span class="rom">minna</span><span class="en">everyone</span></div>
+      <div class="noun-chip"><span class="jp">誰</span><span class="rom">dare</span><span class="en">who / someone</span></div>
+    </div>
+  </div>
+
+  <div class="noun-category">
+    <div class="noun-category-title">Time Words</div>
+    <div class="noun-grid">
+      <div class="noun-chip"><span class="jp">今</span><span class="rom">ima</span><span class="en">now</span></div>
+      <div class="noun-chip"><span class="jp">今日</span><span class="rom">kyō</span><span class="en">today</span></div>
+      <div class="noun-chip"><span class="jp">昨日</span><span class="rom">kinō</span><span class="en">yesterday</span></div>
+      <div class="noun-chip"><span class="jp">明日</span><span class="rom">ashita</span><span class="en">tomorrow</span></div>
+      <div class="noun-chip"><span class="jp">朝</span><span class="rom">asa</span><span class="en">morning</span></div>
+      <div class="noun-chip"><span class="jp">昼</span><span class="rom">hiru</span><span class="en">noon / daytime</span></div>
+      <div class="noun-chip"><span class="jp">夜</span><span class="rom">yoru</span><span class="en">night</span></div>
+      <div class="noun-chip"><span class="jp">晩</span><span class="rom">ban</span><span class="en">evening</span></div>
+      <div class="noun-chip"><span class="jp">今週</span><span class="rom">konshū</span><span class="en">this week</span></div>
+      <div class="noun-chip"><span class="jp">来週</span><span class="rom">raishū</span><span class="en">next week</span></div>
+      <div class="noun-chip"><span class="jp">先週</span><span class="rom">senshū</span><span class="en">last week</span></div>
+      <div class="noun-chip"><span class="jp">来月</span><span class="rom">raigetsu</span><span class="en">next month</span></div>
+      <div class="noun-chip"><span class="jp">今年</span><span class="rom">kotoshi</span><span class="en">this year</span></div>
+      <div class="noun-chip"><span class="jp">時間</span><span class="rom">jikan</span><span class="en">time</span></div>
+      <div class="noun-chip"><span class="jp">毎日</span><span class="rom">mainichi</span><span class="en">every day</span></div>
+    </div>
+  </div>
+
+  <div class="noun-category">
+    <div class="noun-category-title">Places</div>
+    <div class="noun-grid">
+      <div class="noun-chip"><span class="jp">家</span><span class="rom">ie / uchi</span><span class="en">house / home</span></div>
+      <div class="noun-chip"><span class="jp">学校</span><span class="rom">gakkō</span><span class="en">school</span></div>
+      <div class="noun-chip"><span class="jp">大学</span><span class="rom">daigaku</span><span class="en">university</span></div>
+      <div class="noun-chip"><span class="jp">会社</span><span class="rom">kaisha</span><span class="en">company / office</span></div>
+      <div class="noun-chip"><span class="jp">駅</span><span class="rom">eki</span><span class="en">train station</span></div>
+      <div class="noun-chip"><span class="jp">コンビニ</span><span class="rom">konbini</span><span class="en">convenience store</span></div>
+      <div class="noun-chip"><span class="jp">カフェ</span><span class="rom">kafe</span><span class="en">café</span></div>
+      <div class="noun-chip"><span class="jp">図書館</span><span class="rom">toshokan</span><span class="en">library</span></div>
+      <div class="noun-chip"><span class="jp">病院</span><span class="rom">byōin</span><span class="en">hospital</span></div>
+      <div class="noun-chip"><span class="jp">公園</span><span class="rom">kōen</span><span class="en">park</span></div>
+      <div class="noun-chip"><span class="jp">近く</span><span class="rom">chikaku</span><span class="en">nearby</span></div>
+      <div class="noun-chip"><span class="jp">ここ</span><span class="rom">koko</span><span class="en">here</span></div>
+      <div class="noun-chip"><span class="jp">そこ</span><span class="rom">soko</span><span class="en">there</span></div>
+      <div class="noun-chip"><span class="jp">あそこ</span><span class="rom">asoko</span><span class="en">over there</span></div>
+    </div>
+  </div>
+
+  <div class="noun-category">
+    <div class="noun-category-title">Food & Drink</div>
+    <div class="noun-grid">
+      <div class="noun-chip"><span class="jp">ご飯</span><span class="rom">gohan</span><span class="en">rice / meal</span></div>
+      <div class="noun-chip"><span class="jp">ラーメン</span><span class="rom">rāmen</span><span class="en">ramen</span></div>
+      <div class="noun-chip"><span class="jp">寿司</span><span class="rom">sushi</span><span class="en">sushi</span></div>
+      <div class="noun-chip"><span class="jp">水</span><span class="rom">mizu</span><span class="en">water</span></div>
+      <div class="noun-chip"><span class="jp">お茶</span><span class="rom">ocha</span><span class="en">tea</span></div>
+      <div class="noun-chip"><span class="jp">コーヒー</span><span class="rom">kōhī</span><span class="en">coffee</span></div>
+      <div class="noun-chip"><span class="jp">お酒</span><span class="rom">osake</span><span class="en">alcohol</span></div>
+      <div class="noun-chip"><span class="jp">肉</span><span class="rom">niku</span><span class="en">meat</span></div>
+      <div class="noun-chip"><span class="jp">野菜</span><span class="rom">yasai</span><span class="en">vegetables</span></div>
+      <div class="noun-chip"><span class="jp">果物</span><span class="rom">kudamono</span><span class="en">fruit</span></div>
+    </div>
+  </div>
+
+  <div class="noun-category">
+    <div class="noun-category-title">Objects & Things</div>
+    <div class="noun-grid">
+      <div class="noun-chip"><span class="jp">もの</span><span class="rom">mono</span><span class="en">thing</span></div>
+      <div class="noun-chip"><span class="jp">こと</span><span class="rom">koto</span><span class="en">matter / fact / thing (abstract)</span></div>
+      <div class="noun-chip"><span class="jp">スマホ</span><span class="rom">sumaho</span><span class="en">smartphone</span></div>
+      <div class="noun-chip"><span class="jp">お金</span><span class="rom">okane</span><span class="en">money</span></div>
+      <div class="noun-chip"><span class="jp">仕事</span><span class="rom">shigoto</span><span class="en">work / job</span></div>
+      <div class="noun-chip"><span class="jp">言葉</span><span class="rom">kotoba</span><span class="en">word / language</span></div>
+      <div class="noun-chip"><span class="jp">音楽</span><span class="rom">ongaku</span><span class="en">music</span></div>
+      <div class="noun-chip"><span class="jp">映画</span><span class="rom">eiga</span><span class="en">movie</span></div>
+      <div class="noun-chip"><span class="jp">本</span><span class="rom">hon</span><span class="en">book</span></div>
+      <div class="noun-chip"><span class="jp">電車</span><span class="rom">densha</span><span class="en">train</span></div>
+    </div>
+  </div>
+
+  <div class="noun-category">
+    <div class="noun-category-title">Feelings & States</div>
+    <div class="noun-grid">
+      <div class="noun-chip"><span class="jp">気持ち</span><span class="rom">kimochi</span><span class="en">feeling</span></div>
+      <div class="noun-chip"><span class="jp">元気</span><span class="rom">genki</span><span class="en">energy / doing well</span></div>
+      <div class="noun-chip"><span class="jp">大丈夫</span><span class="rom">daijōbu</span><span class="en">okay / fine / alright</span></div>
+      <div class="noun-chip"><span class="jp">問題</span><span class="rom">mondai</span><span class="en">problem</span></div>
+      <div class="noun-chip"><span class="jp">心配</span><span class="rom">shinpai</span><span class="en">worry</span></div>
+      <div class="noun-chip"><span class="jp">夢</span><span class="rom">yume</span><span class="en">dream</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 5 — ADJECTIVES
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-adjectives">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(196,106,247,0.12)">🎨</div>
+    Adjectives
+  </div>
+  <p class="section-desc">Japanese has two types: i-adjectives (end in い) and na-adjectives. They conjugate differently — and they conjugate differently from verbs too.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;">
+    <div class="card">
+      <div class="card-title" style="color:var(--accent4);">I-Adjectives — Conjugation</div>
+      <div class="adj-conj-box" style="background:var(--bg4);">
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Plain present</div>
+          <div class="adj-conj-ex"><span class="jp">おいしい</span> <span class="rom">oishii</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Plain negative</div>
+          <div class="adj-conj-ex"><span class="jp">おいしくない</span> <span class="rom">oishiku nai</span> <span class="en">(drop い, add くない)</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Plain past</div>
+          <div class="adj-conj-ex"><span class="jp">おいしかった</span> <span class="rom">oishikatta</span> <span class="en">(い → かった)</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Past negative</div>
+          <div class="adj-conj-ex"><span class="jp">おいしくなかった</span> <span class="rom">oishiku nakatta</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Adverb form</div>
+          <div class="adj-conj-ex"><span class="jp">おいしく</span> <span class="rom">oishiku</span> <span class="en">(い → く)</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Connecting (て)</div>
+          <div class="adj-conj-ex"><span class="jp">おいしくて</span> <span class="rom">oishikute</span> <span class="en">(い → くて)</span></div>
+        </div>
+      </div>
+      <div class="tip-box" style="margin-top:12px;">
+        <strong>Exception:</strong> いい (ii, "good") — it conjugates from its old form よい (yoi): よくない、よかった、よくて
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="color:var(--accent6);">Na-Adjectives — Conjugation</div>
+      <div class="adj-conj-box" style="background:var(--bg4);">
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Plain present</div>
+          <div class="adj-conj-ex"><span class="jp">好きだ</span> <span class="rom">suki da</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Plain negative</div>
+          <div class="adj-conj-ex"><span class="jp">好きじゃない</span> <span class="rom">suki ja nai</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Plain past</div>
+          <div class="adj-conj-ex"><span class="jp">好きだった</span> <span class="rom">suki datta</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Past negative</div>
+          <div class="adj-conj-ex"><span class="jp">好きじゃなかった</span> <span class="rom">suki ja nakatta</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Modifying noun</div>
+          <div class="adj-conj-ex"><span class="jp">好きな食べ物</span> <span class="rom">suki na tabemono</span> <span class="en">(add な before noun)</span></div>
+        </div>
+        <div class="adj-conj-row">
+          <div class="adj-conj-form">Connecting (で)</div>
+          <div class="adj-conj-ex"><span class="jp">好きで</span> <span class="rom">suki de</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-sub">I-Adjectives</div>
+  <div class="adj-grid">
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">いい / よい</div>
+      <div class="verb-rom">ii / yoi</div>
+      <div class="verb-en">good</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">悪い</div>
+      <div class="verb-rom">warui</div>
+      <div class="verb-en">bad</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">大きい</div>
+      <div class="verb-rom">ookii</div>
+      <div class="verb-en">big</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">小さい</div>
+      <div class="verb-rom">chiisai</div>
+      <div class="verb-en">small</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">高い</div>
+      <div class="verb-rom">takai</div>
+      <div class="verb-en">tall / expensive</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">安い</div>
+      <div class="verb-rom">yasui</div>
+      <div class="verb-en">cheap</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">新しい</div>
+      <div class="verb-rom">atarashii</div>
+      <div class="verb-en">new</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">古い</div>
+      <div class="verb-rom">furui</div>
+      <div class="verb-en">old</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">早い</div>
+      <div class="verb-rom">hayai</div>
+      <div class="verb-en">fast / early</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">遅い</div>
+      <div class="verb-rom">osoi</div>
+      <div class="verb-en">slow / late</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">熱い</div>
+      <div class="verb-rom">atsui</div>
+      <div class="verb-en">hot (to the touch)</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">暑い</div>
+      <div class="verb-rom">atsui</div>
+      <div class="verb-en">hot (weather)</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">寒い</div>
+      <div class="verb-rom">samui</div>
+      <div class="verb-en">cold (weather)</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">冷たい</div>
+      <div class="verb-rom">tsumetai</div>
+      <div class="verb-en">cold (to the touch)</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">うれしい</div>
+      <div class="verb-rom">ureshii</div>
+      <div class="verb-en">happy / glad</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">悲しい</div>
+      <div class="verb-rom">kanashii</div>
+      <div class="verb-en">sad</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">楽しい</div>
+      <div class="verb-rom">tanoshii</div>
+      <div class="verb-en">fun / enjoyable</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">難しい</div>
+      <div class="verb-rom">muzukashii</div>
+      <div class="verb-en">difficult</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">優しい</div>
+      <div class="verb-rom">yasashii</div>
+      <div class="verb-en">kind / gentle / easy</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">かわいい</div>
+      <div class="verb-rom">kawaii</div>
+      <div class="verb-en">cute</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">かっこいい</div>
+      <div class="verb-rom">kakkoii</div>
+      <div class="verb-en">cool / handsome</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">忙しい</div>
+      <div class="verb-rom">isogashii</div>
+      <div class="verb-en">busy</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">おいしい</div>
+      <div class="verb-rom">oishii</div>
+      <div class="verb-en">delicious</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-i">まずい</div>
+      <div class="verb-rom">mazui</div>
+      <div class="verb-en">bad-tasting</div>
+    </div>
+  </div>
+
+  <div class="section-sub">Na-Adjectives</div>
+  <div class="adj-grid">
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">好き（な）</div>
+      <div class="verb-rom">suki (na)</div>
+      <div class="verb-en">liked / favorite</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">嫌い（な）</div>
+      <div class="verb-rom">kirai (na)</div>
+      <div class="verb-en">disliked / hated</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">静か（な）</div>
+      <div class="verb-rom">shizuka (na)</div>
+      <div class="verb-en">quiet</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">にぎやか（な）</div>
+      <div class="verb-rom">nigiyaka (na)</div>
+      <div class="verb-en">lively / bustling</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">元気（な）</div>
+      <div class="verb-rom">genki (na)</div>
+      <div class="verb-en">energetic / well</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">大丈夫（な）</div>
+      <div class="verb-rom">daijōbu (na)</div>
+      <div class="verb-en">okay / fine</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">有名（な）</div>
+      <div class="verb-rom">yūmei (na)</div>
+      <div class="verb-en">famous</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">親切（な）</div>
+      <div class="verb-rom">shinsetsu (na)</div>
+      <div class="verb-en">kind / helpful</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">ひま（な）</div>
+      <div class="verb-rom">hima (na)</div>
+      <div class="verb-en">free / with nothing to do</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">大変（な）</div>
+      <div class="verb-rom">taihen (na)</div>
+      <div class="verb-en">tough / terrible / awful</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">変（な）</div>
+      <div class="verb-rom">hen (na)</div>
+      <div class="verb-en">weird / strange</div>
+    </div>
+    <div class="adj-item">
+      <div class="adj-jp adj-type-na">便利（な）</div>
+      <div class="verb-rom">benri (na)</div>
+      <div class="verb-en">convenient</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 6 — ADVERBS & CONNECTORS
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-adverbs">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(247,196,106,0.12)">🔗</div>
+    Adverbs &amp; Connectors
+  </div>
+  <p class="section-desc">These words are the oil in the engine — they add nuance, timing, and flow to your sentences. Learn these and you'll sound way more natural.</p>
+
+  <div class="card">
+    <div class="card-title">Frequency</div>
+    <div class="adverb-grid">
+      <div class="adv-item">
+        <div class="adv-jp">いつも</div>
+        <div class="adv-rom">itsumo</div>
+        <div class="adv-en">always / all the time</div>
+        <div class="adv-ex">いつも遅い — "always late"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">よく</div>
+        <div class="adv-rom">yoku</div>
+        <div class="adv-en">often / well</div>
+        <div class="adv-ex">よく行く — "go often"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">時々</div>
+        <div class="adv-rom">tokidoki</div>
+        <div class="adv-en">sometimes</div>
+        <div class="adv-ex">時々食べる — "eat sometimes"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">たまに</div>
+        <div class="adv-rom">tama ni</div>
+        <div class="adv-en">occasionally / once in a while</div>
+        <div class="adv-ex">たまに飲む — "drink occasionally"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">あまり〜ない</div>
+        <div class="adv-rom">amari ~nai</div>
+        <div class="adv-en">not very / not much (needs negative verb)</div>
+        <div class="adv-ex">あまり好きじゃない — "don't like much"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">全然〜ない</div>
+        <div class="adv-rom">zenzen ~nai</div>
+        <div class="adv-en">not at all (needs negative)</div>
+        <div class="adv-ex">全然わからない — "don't get it at all"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">大体</div>
+        <div class="adv-rom">taitei</div>
+        <div class="adv-en">usually / mostly / generally</div>
+        <div class="adv-ex">大体10時に寝る — "usually sleep at 10"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Time &amp; Sequence</div>
+    <div class="adverb-grid">
+      <div class="adv-item">
+        <div class="adv-jp">もう</div>
+        <div class="adv-rom">mou</div>
+        <div class="adv-en">already / anymore (with negative)</div>
+        <div class="adv-ex">もう食べた — "already ate"<br>もう食べない — "won't eat anymore"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">まだ</div>
+        <div class="adv-rom">mada</div>
+        <div class="adv-en">still / not yet</div>
+        <div class="adv-ex">まだ起きてる — "still awake"<br>まだ食べてない — "haven't eaten yet"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">すぐ</div>
+        <div class="adv-rom">sugu</div>
+        <div class="adv-en">soon / right away / immediately</div>
+        <div class="adv-ex">すぐ行く — "going right away"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">前に</div>
+        <div class="adv-rom">mae ni</div>
+        <div class="adv-en">before</div>
+        <div class="adv-ex">寝る前に — "before sleeping"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">後で</div>
+        <div class="adv-rom">ato de</div>
+        <div class="adv-en">later / after</div>
+        <div class="adv-ex">後でやる — "I'll do it later"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">ゆっくり</div>
+        <div class="adv-rom">yukkuri</div>
+        <div class="adv-en">slowly / at leisure / take your time</div>
+        <div class="adv-ex">ゆっくり話して — "speak slowly"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">早く</div>
+        <div class="adv-rom">hayaku</div>
+        <div class="adv-en">quickly / soon / early</div>
+        <div class="adv-ex">早く帰りたい — "want to go home soon"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Degree &amp; Amount</div>
+    <div class="adverb-grid">
+      <div class="adv-item">
+        <div class="adv-jp">とても</div>
+        <div class="adv-rom">totemo</div>
+        <div class="adv-en">very / really</div>
+        <div class="adv-ex">とても好き — "like a lot"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">めっちゃ</div>
+        <div class="adv-rom">meccha</div>
+        <div class="adv-en">super / extremely (very casual)</div>
+        <div class="adv-ex">めっちゃうまい — "super good!"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">ちょっと</div>
+        <div class="adv-rom">chotto</div>
+        <div class="adv-en">a little / a bit / (soft refusal)</div>
+        <div class="adv-ex">ちょっと待って — "wait a sec"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">少し</div>
+        <div class="adv-rom">sukoshi</div>
+        <div class="adv-en">a little (more formal than ちょっと)</div>
+        <div class="adv-ex">少し分かる — "understand a little"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">随分</div>
+        <div class="adv-rom">zuibun</div>
+        <div class="adv-en">quite / considerably / a lot more than expected</div>
+        <div class="adv-ex">随分変わった — "changed quite a bit"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">かなり</div>
+        <div class="adv-rom">kanari</div>
+        <div class="adv-en">quite / fairly / considerably</div>
+        <div class="adv-ex">かなり難しい — "quite difficult"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Connectors (Discourse Glue)</div>
+    <div class="adverb-grid">
+      <div class="adv-item">
+        <div class="adv-jp">でも</div>
+        <div class="adv-rom">demo</div>
+        <div class="adv-en">but / however</div>
+        <div class="adv-ex">行きたい。でも、お金ない。<br>"Wanna go. But no money."</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">けど / けれど</div>
+        <div class="adv-rom">kedo / keredo</div>
+        <div class="adv-en">but / though (attaches to end of clause)</div>
+        <div class="adv-ex">行きたいけど… — "I want to go, but…"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">だから</div>
+        <div class="adv-rom">dakara</div>
+        <div class="adv-en">so / therefore / that's why</div>
+        <div class="adv-ex">遅かったよ。だから電話した。<br>"You were late. So I called."</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">それから</div>
+        <div class="adv-rom">sore kara</div>
+        <div class="adv-en">and then / after that</div>
+        <div class="adv-ex">食べた。それから寝た。<br>"Ate. Then slept."</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">それに</div>
+        <div class="adv-rom">sore ni</div>
+        <div class="adv-en">on top of that / moreover</div>
+        <div class="adv-ex">高い。それに遠い。<br>"Expensive. On top of that, far."</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">じゃあ / じゃ</div>
+        <div class="adv-rom">jaa / ja</div>
+        <div class="adv-en">well then / in that case / okay then</div>
+        <div class="adv-ex">じゃあ、行こうか。<br>"Well then, shall we go?"</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">〜し</div>
+        <div class="adv-rom">shi</div>
+        <div class="adv-en">and also (listing reasons, clause connector)</div>
+        <div class="adv-ex">安いし、おいしいし。<br>"It's cheap, and it's delicious."</div>
+      </div>
+      <div class="adv-item">
+        <div class="adv-jp">〜たら</div>
+        <div class="adv-rom">tara</div>
+        <div class="adv-en">if / when (conditional)</div>
+        <div class="adv-ex">着いたら連絡して。<br>"Let me know when you arrive."</div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      <strong>ちょっと as a soft no:</strong> In Japanese, directly saying "no" is often avoided. <span class="jp">ちょっと…</span> (chotto...) said with a trailing voice means "that's a bit... (not possible)." It's one of the most culturally important phrases to know.
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 7 — CASUAL VS FORMAL
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-casual">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(247,106,138,0.12)">💬</div>
+    Casual vs Formal Speech
+  </div>
+  <p class="section-desc">Since you're learning everyday conversational Japanese, you'll mostly use casual. But knowing the difference — and when to switch — is key.</p>
+
+  <div class="compare-grid">
+    <div class="compare-col casual">
+      <h4>Casual (タメ語 tameguchi)</h4>
+      <div class="compare-row">
+        <div class="compare-jp">だ</div>
+        <div class="compare-desc">copula (=is) for plain statements: <span class="jp">学生だ</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">〜ない</div>
+        <div class="compare-desc">negative: <span class="jp">行かない</span> (not going)</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">〜た</div>
+        <div class="compare-desc">past: <span class="jp">食べた</span> (ate)</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">〜てる</div>
+        <div class="compare-desc">progressive: <span class="jp">食べてる</span> (eating)</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">じゃない</div>
+        <div class="compare-desc">negative copula: <span class="jp">学生じゃない</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">だった</div>
+        <div class="compare-desc">past copula: <span class="jp">学生だった</span></div>
+      </div>
+    </div>
+    <div class="compare-col formal">
+      <h4>Polite (丁寧語 teineigo)</h4>
+      <div class="compare-row">
+        <div class="compare-jp">です</div>
+        <div class="compare-desc">polite copula: <span class="jp">学生です</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">〜ません</div>
+        <div class="compare-desc">negative: <span class="jp">行きません</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">〜ました</div>
+        <div class="compare-desc">past: <span class="jp">食べました</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">〜ています</div>
+        <div class="compare-desc">progressive: <span class="jp">食べています</span></div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">ではありません</div>
+        <div class="compare-desc">negative copula (formal)</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-jp">でした</div>
+        <div class="compare-desc">past copula: <span class="jp">学生でした</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:18px;">
+    <div class="card-title">Dropped Particles in Casual Speech</div>
+    <p style="font-size:0.88rem;color:var(--text2);margin-bottom:14px;">In real casual conversation, particles (especially は, を, が) are dropped all the time. This is completely normal.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="font-size:0.8rem;color:var(--text3);margin-bottom:6px;">TEXTBOOK / FORMAL</div>
+        <div><span class="jp">ご飯を食べましたか？</span></div>
+        <div class="rom">gohan wo tabemashita ka?</div>
+        <div class="en">"Did you eat?"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;border-left:2px solid var(--accent3);">
+        <div style="font-size:0.8rem;color:var(--accent3);margin-bottom:6px;">REAL CASUAL</div>
+        <div><span class="jp">ご飯食べた？</span></div>
+        <div class="rom">gohan tabeta?</div>
+        <div class="en">"Ate?" / "Did ya eat?"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;">
+        <div style="font-size:0.8rem;color:var(--text3);margin-bottom:6px;">TEXTBOOK / FORMAL</div>
+        <div><span class="jp">どこに行きますか？</span></div>
+        <div class="rom">doko ni ikimasu ka?</div>
+        <div class="en">"Where are you going?"</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:14px;border-left:2px solid var(--accent3);">
+        <div style="font-size:0.8rem;color:var(--accent3);margin-bottom:6px;">REAL CASUAL</div>
+        <div><span class="jp">どこ行くの？</span></div>
+        <div class="rom">doko iku no?</div>
+        <div class="en">"Where you going?"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Sentence-Ending Particles — The Flavor Words</div>
+    <p style="font-size:0.88rem;color:var(--text2);margin-bottom:14px;">These tiny words at the end of sentences add huge amounts of nuance — emotion, emphasis, seeking agreement, softness.</p>
+    <div class="ending-grid">
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent3);">ね</div>
+        <div class="ending-en">Right? / Isn't it? — seeking agreement, softening</div>
+        <div class="ending-ex">おいしいね — "This is good, right?"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent2);">よ</div>
+        <div class="ending-en">I'm telling you / you know — asserting information</div>
+        <div class="ending-ex">それは違うよ — "That's wrong, I'm telling you"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent4);">よね</div>
+        <div class="ending-en">Right? (asserting but checking) — super common combo</div>
+        <div class="ending-ex">そうだよね — "That's right, isn't it?"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent5);">の / の？</div>
+        <div class="ending-en">Soft question / explanation nuance (feminine-leaning)</div>
+        <div class="ending-ex">どこ行くの？ — "Where are you going?"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent1);">かな</div>
+        <div class="ending-en">I wonder... / maybe... — talking to yourself / musing</div>
+        <div class="ending-ex">大丈夫かな — "I wonder if it's okay..."</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:#f7a46a;">な</div>
+        <div class="ending-en">Talking to yourself / mild assertion (masculine)</div>
+        <div class="ending-ex">疲れたな — "Man, I'm tired"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent2);">ぞ</div>
+        <div class="ending-en">Strong assertion (masculine, a bit rough)</div>
+        <div class="ending-ex">行くぞ — "We're going!"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent3);">ぜ</div>
+        <div class="ending-en">Casual strong assertion (masculine, cool/friendly)</div>
+        <div class="ending-ex">やるぜ — "Let's do it!"</div>
+      </div>
+      <div class="ending-card">
+        <div class="ending-jp jp" style="color:var(--accent6);">っけ</div>
+        <div class="ending-en">Trying to remember / confirming something forgot</div>
+        <div class="ending-ex">名前なんだっけ — "What was your name again?"</div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      <strong>Real talk:</strong> ね、よ、and よね are used constantly in Japanese conversation. If you can sprinkle these in naturally, you'll sound dramatically more fluent. A flat statement without these sounds robotic.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">When to Use Which?</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;">
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;border-top:3px solid var(--accent3);">
+        <div style="font-weight:600;color:var(--accent3);margin-bottom:6px;">Casual (タメ語)</div>
+        <div style="font-size:0.85rem;color:var(--text2);">Close friends, family, people your age or younger, people who invite casual speech, texting</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;border-top:3px solid var(--accent5);">
+        <div style="font-weight:600;color:var(--accent5);margin-bottom:6px;">Polite (丁寧語)</div>
+        <div style="font-size:0.85rem;color:var(--text2);">Strangers, shops/restaurants, work, teachers, elders, anyone you're meeting for the first time</div>
+      </div>
+      <div style="background:var(--bg3);border-radius:8px;padding:12px;border-top:3px solid var(--accent4);">
+        <div style="font-weight:600;color:var(--accent4);margin-bottom:6px;">Default as a learner</div>
+        <div style="font-size:0.85rem;color:var(--text2);">When in doubt, use polite. Japanese people won't be offended — they'll be impressed. Casual to the wrong person is rude; polite is just safe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TAB 8 — EXERCISES
+══════════════════════════════════════════════ -->
+<section class="tab-panel" id="tab-exercises">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(76,175,114,0.12)">🧩</div>
+    Build the Sentence
+  </div>
+  <p class="section-desc">Click word chips from the bank to build the correct Japanese sentence. Click placed chips to send them back. Good luck!</p>
+
+  <div class="score-bar">
+    <div>
+      <div class="score-display" id="score-display">0 / 10</div>
+      <div class="score-label">exercises completed</div>
+    </div>
+    <div class="progress-dots" id="progress-dots">
+      <div class="dot" id="dot-0"></div>
+      <div class="dot" id="dot-1"></div>
+      <div class="dot" id="dot-2"></div>
+      <div class="dot" id="dot-3"></div>
+      <div class="dot" id="dot-4"></div>
+      <div class="dot" id="dot-5"></div>
+      <div class="dot" id="dot-6"></div>
+      <div class="dot" id="dot-7"></div>
+      <div class="dot" id="dot-8"></div>
+      <div class="dot" id="dot-9"></div>
+    </div>
+    <button class="btn btn-secondary reset-all" onclick="resetAll()">Reset All</button>
+  </div>
+
+  <div class="exercises" id="exercises-container"></div>
+</section>
+
+</main>
+
+<script>
+// ── TAB NAVIGATION ───────────────────────────────────────────────
+const navBtns = document.querySelectorAll('nav button');
+const panels  = document.querySelectorAll('section.tab-panel');
+
+navBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    navBtns.forEach(b => b.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ── EXERCISES DATA ───────────────────────────────────────────────
+const exercises = [
+  {
+    english: "I eat ramen every day.",
+    answer: ["毎日", "ラーメン", "を", "食べる"],
+    answerRom: ["mainichi", "rāmen", "wo", "taberu"],
+    explanation: "<strong>毎日</strong> (mainichi) = every day, goes first as time expression. <strong>ラーメン</strong> = ramen. <strong>を</strong> marks the direct object. <strong>食べる</strong> = eat, verb at the end.",
+    full_jp: "毎日ラーメンを食べる",
+    full_rom: "mainichi rāmen wo taberu",
+    extra: ["は", "に", "で", "行く", "今", "飲む"]
+  },
+  {
+    english: "I'm going to the library.",
+    answer: ["図書館", "に", "行く"],
+    answerRom: ["toshokan", "ni", "iku"],
+    explanation: "<strong>図書館</strong> (toshokan) = library. <strong>に</strong> marks direction/destination — you're going <em>to</em> it. <strong>行く</strong> = go. Subject (boku/I) is dropped — totally normal in casual Japanese.",
+    full_jp: "図書館に行く",
+    full_rom: "toshokan ni iku",
+    extra: ["を", "で", "から", "学校", "来る", "は"]
+  },
+  {
+    english: "I don't understand at all.",
+    answer: ["全然", "わからない"],
+    answerRom: ["zenzen", "wakaranai"],
+    explanation: "<strong>全然</strong> (zenzen) = not at all. It MUST pair with a negative verb. <strong>わからない</strong> = don't understand (nai = negative).",
+    full_jp: "全然わからない",
+    full_rom: "zenzen wakaranai",
+    extra: ["よく", "いつも", "わかる", "ない", "大体"]
+  },
+  {
+    english: "I want to eat sushi.",
+    answer: ["寿司", "を", "食べたい"],
+    answerRom: ["sushi", "wo", "tabetai"],
+    explanation: "<strong>寿司</strong> = sushi. <strong>を</strong> marks it as the object. <strong>食べたい</strong> = want to eat (食べ + たい for 'want to'). Notice たい attaches to the masu-stem (食べ).",
+    full_jp: "寿司を食べたい",
+    full_rom: "sushi wo tabetai",
+    extra: ["に", "で", "食べる", "飲む", "が", "ラーメン"]
+  },
+  {
+    english: "I'm listening to music right now.",
+    answer: ["今", "音楽", "聞いてる"],
+    answerRom: ["ima", "ongaku", "kiiteru"],
+    explanation: "<strong>今</strong> (ima) = now. <strong>音楽</strong> (ongaku) = music. <strong>聞いてる</strong> = is listening (聞いて + いる contracted to てる). を is dropped in casual speech.",
+    full_jp: "今音楽聞いてる",
+    full_rom: "ima ongaku kiiteru",
+    extra: ["を", "に", "で", "見てる", "毎日", "が"]
+  },
+  {
+    english: "I hang out with friends on weekends.",
+    answer: ["週末", "友達", "と", "遊ぶ"],
+    answerRom: ["shūmatsu", "tomodachi", "to", "asobu"],
+    explanation: "<strong>週末</strong> (shūmatsu) = weekend. <strong>友達</strong> (tomodachi) = friends. <strong>と</strong> = with (together with someone). <strong>遊ぶ</strong> = hang out/play.",
+    full_jp: "週末友達と遊ぶ",
+    full_rom: "shūmatsu tomodachi to asobu",
+    extra: ["は", "に", "で", "を", "行く", "毎日"]
+  },
+  {
+    english: "That was fun, but I'm tired.",
+    answer: ["楽しかった", "けど", "疲れた"],
+    answerRom: ["tanoshikatta", "kedo", "tsukareta"],
+    explanation: "<strong>楽しかった</strong> = was fun (i-adj past: 楽しい → 楽しかった). <strong>けど</strong> = but/though (attaches after a clause). <strong>疲れた</strong> = got tired (past of 疲れる).",
+    full_jp: "楽しかったけど疲れた",
+    full_rom: "tanoshikatta kedo tsukareta",
+    extra: ["でも", "だから", "楽しい", "疲れる", "けれど", "楽しくない"]
+  },
+  {
+    english: "I haven't eaten yet.",
+    answer: ["まだ", "食べてない"],
+    answerRom: ["mada", "tabetenai"],
+    explanation: "<strong>まだ</strong> = not yet (always pairs with negative). <strong>食べてない</strong> = haven't eaten (食べている → casual negative: 食べていない → 食べてない).",
+    full_jp: "まだ食べてない",
+    full_rom: "mada tabetenai",
+    extra: ["もう", "全然", "食べた", "食べてる", "ない", "いつも"]
+  },
+  {
+    english: "My friend can speak Japanese.",
+    answer: ["友達", "は", "日本語", "話せる"],
+    answerRom: ["tomodachi", "wa", "nihongo", "hanaseru"],
+    explanation: "<strong>友達</strong> = friend. <strong>は</strong> marks the topic. <strong>日本語</strong> (nihongo) = Japanese language. <strong>話せる</strong> = can speak (potential form of 話す godan: 話す→話せる).",
+    full_jp: "友達は日本語話せる",
+    full_rom: "tomodachi wa nihongo hanaseru",
+    extra: ["が", "を", "に", "話す", "分かる", "英語"]
+  },
+  {
+    english: "After eating, let's go somewhere.",
+    answer: ["食べて", "から", "どこか", "行こう"],
+    answerRom: ["tabete", "kara", "dokoka", "ikō"],
+    explanation: "<strong>食べて</strong> = te-form of 食べる. <strong>から</strong> after te-form = 'after doing'. <strong>どこか</strong> = somewhere (どこ=where + か). <strong>行こう</strong> = let's go (volitional form of 行く).",
+    full_jp: "食べてからどこか行こう",
+    full_rom: "tabete kara dokoka ikō",
+    extra: ["て", "に", "も", "行く", "何か", "来よう"]
+  }
+];
+
+// ── BUILD EXERCISES ──────────────────────────────────────────────
+let scores = new Array(exercises.length).fill(null);
+
+function buildExercise(ex, idx) {
+  const card = document.createElement('div');
+  card.className = 'exercise-card';
+  card.id = 'ex-card-' + idx;
+
+  // shuffle all chips
+  const allChips = [...ex.answer.map((w,i) => ({word:w, rom:ex.answerRom[i]})),
+                    ...ex.extra.map(w => ({word:w, rom:''}))];
+  const shuffled = allChips.sort(() => Math.random() - 0.5);
+
+  card.innerHTML = `
+    <div class="ex-header">
+      <div class="ex-num">${idx+1}</div>
+      <div class="ex-en">${ex.english}</div>
+    </div>
+    <div class="ex-hint">Arrange the word chips to build the Japanese sentence.</div>
+
+    <div class="drop-zone-label">YOUR SENTENCE:</div>
+    <div class="drop-zone" id="drop-${idx}"></div>
+
+    <div class="drop-zone-label" style="margin-top:12px;">WORD BANK:</div>
+    <div class="word-bank" id="bank-${idx}">
+      ${shuffled.map((c,ci) => `
+        <div class="word-chip" id="chip-${idx}-${ci}" data-idx="${idx}" data-ci="${ci}" data-word="${c.word}" data-rom="${c.rom}" onclick="moveChip(this, 'tozone')">
+          <span>${c.word}</span>
+          ${c.rom ? `<span class="chip-rom">${c.rom}</span>` : ''}
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="ex-controls">
+      <button class="btn btn-primary" onclick="checkAnswer(${idx})">Check Answer</button>
+      <button class="btn btn-secondary" onclick="resetExercise(${idx})">Reset</button>
+    </div>
+
+    <div class="ex-result" id="result-${idx}">
+      <div id="result-msg-${idx}"></div>
+      <div class="result-answer" id="result-answer-${idx}"></div>
+      <div class="result-explanation" id="result-exp-${idx}"></div>
+    </div>
+  `;
+
+  return card;
+}
+
+function moveChip(chip, direction) {
+  const idx = chip.dataset.idx;
+  const zone = document.getElementById('drop-' + idx);
+  const bank = document.getElementById('bank-' + idx);
+
+  if (direction === 'tozone') {
+    // move from bank to zone
+    const placed = document.createElement('div');
+    placed.className = 'placed-chip';
+    placed.dataset.idx = idx;
+    placed.dataset.ci = chip.dataset.ci;
+    placed.dataset.word = chip.dataset.word;
+    placed.dataset.rom = chip.dataset.rom;
+    placed.innerHTML = `<span>${chip.dataset.word}</span>${chip.dataset.rom ? `<span class="chip-rom">${chip.dataset.rom}</span>` : ''}`;
+    placed.onclick = function() { moveChip(this, 'tobank'); };
+    zone.appendChild(placed);
+    chip.style.opacity = '0.3';
+    chip.style.pointerEvents = 'none';
+  } else {
+    // move from zone back to bank
+    const ci = chip.dataset.ci;
+    const origChip = document.getElementById('chip-' + idx + '-' + ci);
+    if (origChip) {
+      origChip.style.opacity = '1';
+      origChip.style.pointerEvents = 'auto';
+    }
+    chip.remove();
+  }
+}
+
+function checkAnswer(idx) {
+  const ex = exercises[idx];
+  const zone = document.getElementById('drop-' + idx);
+  const placedChips = zone.querySelectorAll('.placed-chip');
+  const userAnswer = Array.from(placedChips).map(c => c.dataset.word);
+
+  const resultBox = document.getElementById('result-' + idx);
+  const msgEl = document.getElementById('result-msg-' + idx);
+  const answerEl = document.getElementById('result-answer-' + idx);
+  const expEl = document.getElementById('result-exp-' + idx);
+  const card = document.getElementById('ex-card-' + idx);
+
+  const isCorrect = JSON.stringify(userAnswer) === JSON.stringify(ex.answer);
+
+  resultBox.classList.add('show');
+  resultBox.className = `ex-result show ${isCorrect ? 'correct' : 'wrong'}`;
+  card.className = `exercise-card ${isCorrect ? 'correct' : 'wrong'}`;
+
+  if (isCorrect) {
+    msgEl.innerHTML = '<span class="result-icon">✓</span> <strong style="color:var(--correct)">Correct!</strong> That\'s exactly right.';
+  } else {
+    msgEl.innerHTML = '<span class="result-icon">✗</span> <strong style="color:var(--wrong)">Not quite.</strong> Here\'s the correct answer:';
+    answerEl.innerHTML = `<span class="jp" style="font-size:1.1rem;">${ex.full_jp}</span><br><span class="rom">${ex.full_rom}</span>`;
+  }
+
+  expEl.innerHTML = ex.explanation;
+
+  // update score
+  if (scores[idx] === null) {
+    scores[idx] = isCorrect ? 'correct' : 'wrong';
+    updateScore();
+  } else {
+    scores[idx] = isCorrect ? 'correct' : 'wrong';
+    updateScore();
+  }
+}
+
+function resetExercise(idx) {
+  const zone = document.getElementById('drop-' + idx);
+  const bank = document.getElementById('bank-' + idx);
+  const resultBox = document.getElementById('result-' + idx);
+  const card = document.getElementById('ex-card-' + idx);
+
+  // return all placed chips
+  zone.querySelectorAll('.placed-chip').forEach(c => {
+    const ci = c.dataset.ci;
+    const orig = document.getElementById('chip-' + idx + '-' + ci);
+    if (orig) { orig.style.opacity = '1'; orig.style.pointerEvents = 'auto'; }
+    c.remove();
+  });
+
+  resultBox.className = 'ex-result';
+  card.className = 'exercise-card';
+  scores[idx] = null;
+  updateScore();
+}
+
+function resetAll() {
+  exercises.forEach((_, idx) => resetExercise(idx));
+}
+
+function updateScore() {
+  const completed = scores.filter(s => s !== null).length;
+  const correct   = scores.filter(s => s === 'correct').length;
+  document.getElementById('score-display').textContent = correct + ' / ' + exercises.length;
+
+  scores.forEach((s, idx) => {
+    const dot = document.getElementById('dot-' + idx);
+    if (!dot) return;
+    dot.className = 'dot' + (s === 'correct' ? ' correct' : s === 'wrong' ? ' wrong' : '');
+  });
+}
+
+// ── INIT EXERCISES ───────────────────────────────────────────────
+const container = document.getElementById('exercises-container');
+exercises.forEach((ex, idx) => {
+  container.appendChild(buildExercise(ex, idx));
+});
+
+// ── COLLAPSIBLES (optional future use) ──────────────────────────
+document.querySelectorAll('.collapsible-trigger').forEach(trigger => {
+  const body = trigger.nextElementSibling;
+  if (body && body.classList.contains('collapsible-body')) {
+    const h = body.scrollHeight;
+    body.style.maxHeight = h + 'px';
+    trigger.addEventListener('click', () => {
+      const collapsed = trigger.classList.toggle('collapsed');
+      body.classList.toggle('collapsed', collapsed);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
