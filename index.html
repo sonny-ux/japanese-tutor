@@ -313,7 +313,9 @@
     margin-bottom: 10px;
   }
   .chip {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 16px;
     padding: 4px 10px;
     border: 1px solid var(--border);
@@ -321,6 +323,13 @@
     cursor: pointer;
     user-select: none;
     transition: background 0.1s, border-color 0.1s;
+    line-height: 1.3;
+  }
+  .chip-rom {
+    font-size: 10px;
+    color: var(--text-light);
+    font-family: var(--sans);
+    margin-top: 1px;
   }
   .chip:hover { background: var(--accent-light); border-color: var(--accent-mid); }
   .chip.in-answer { opacity: 0.35; pointer-events: none; }
@@ -796,6 +805,37 @@
     <span class="note-label">The "False Friend" Trap</span>
     Several common verbs end in -iru or -eru but are actually Group 1 (Godan): <strong>帰る</strong> (kaeru, return), <strong>入る</strong> (hairu, enter), <strong>知る</strong> (shiru, know), <strong>要る</strong> (iru, need), <strong>走る</strong> (hashiru, run), <strong>切る</strong> (kiru, cut). Test: if you're unsure, try the negative. Group 1 verbs form ない by changing to a-row (帰らない), while Group 2 drops る and adds ない (食べない). Misidentifying these gives you wrong forms like 帰りない, which doesn't exist.
   </div>
+
+  <h3>The 14 Conjugation Forms — What They Mean</h3>
+  <p>Before scanning the tables, it helps to know what each row is actually for. Here is a brief explanation of every conjugation form you will encounter.</p>
+
+  <p><strong>1. Dictionary form</strong> — This is the base form of the verb, the one you look up in a dictionary. In casual speech it functions as the present or future tense: <em>たべる</em> means "I eat" or "I will eat" depending on context. Because so many grammar patterns attach to other forms, mastering this base is where everything starts.</p>
+
+  <p><strong>2. Plain past (~た)</strong> — Expresses a completed action in casual speech. <em>たべた</em> = "ate." This form also works as an adjective modifier before nouns: <em>たべたもの</em> = "the thing I ate." The sound change to produce the plain past follows the same pattern as the te-form (see below).</p>
+
+  <p><strong>3. Plain negative (~ない)</strong> — Negation in casual speech: <em>たべない</em> = "don't eat." Importantly, ない is itself an い-adjective and can conjugate further — the negative past is formed by treating ない like an i-adjective: <em>たべなかった</em> = "didn't eat." Understanding this prevents a lot of confusion about how negation stacks.</p>
+
+  <p><strong>4. Plain past negative (~なかった)</strong> — The past tense of the negative, combining the negative stem with the past tense of ない. <em>たべなかった</em> = "didn't eat." This is formed mechanically: drop the い from ない, add かった, just as any い-adjective forms its past tense.</p>
+
+  <p><strong>5. Te-form</strong> — The te-form is not a tense at all — it is a connector. It links actions in sequence ("ate and then…"), forms polite requests with ください, builds the progressive with いる, and attaches to dozens of helper verb patterns like てみる, てしまう, and てもいい. Think of it as a verbal hinge that lets you chain meaning.</p>
+
+  <p><strong>6. Polite present (~ます)</strong> — The form you reach for by default when speaking to most people — teachers, colleagues, strangers, anyone you are not on informal terms with. It does not change the meaning of the verb, only the social register. When in doubt about which form to use in conversation, ます is the safe choice.</p>
+
+  <p><strong>7. Polite negative (~ません)</strong> — The polite counterpart of ない. <em>たべません</em> = "I don't eat" (polite). Unlike the plain negative, this form does not conjugate further on its own — you use ませんでした for the polite past negative.</p>
+
+  <p><strong>8. Polite past (~ました)</strong> — Completed action in polite speech. <em>たべました</em> = "I ate." This is the past form you use in formal settings, and it pairs naturally with time expressions like きのう (yesterday) and さっき (just now).</p>
+
+  <p><strong>9. Want to (~たい)</strong> — Attaches to the polite stem (i-stem) and expresses the speaker's desire to do something: <em>たべたい</em> = "I want to eat." Crucially, ~たい behaves like an い-adjective and can conjugate: たべたくない (don't want to), たべたかった (wanted to). It can only express your own first-person desires; to talk about what someone else wants, use ~たがっている or ~ほしいと言っている instead.</p>
+
+  <p><strong>10. Potential (~られる / ~える)</strong> — Expresses ability or possibility: "can," "be able to." Group 2 verbs add られる to the stem (たべられる = "can eat"); Group 1 verbs shift to the e-row and add る (かける = "can write"). In casual speech, the ら in Group 2 potential is often dropped — 食べれる instead of 食べられる — a phenomenon called ら抜き言葉 (ra-nuki kotoba). This is widely used but still considered non-standard in formal writing.</p>
+
+  <p><strong>11. Progressive (~ている / ~てる)</strong> — Formed by attaching いる to the te-form. This has two distinct uses that learners often conflate: an ongoing action in progress (たべている = "is eating right now"), and a resultant state from a past event (けっこんしている = "is married" — the state resulting from the act of getting married). Context almost always makes it clear which reading applies. てる is the casual contraction of ている.</p>
+
+  <p><strong>12. Volitional (~よう / ~ましょう)</strong> — Expresses "let's do X" (an invitation) or "I think I'll do X" (a statement of intention). The plain volitional (のもう = "let's drink") is used for self-directed intention or casual invitations; the polite volitional ましょう is used to formally invite someone to join you in an action. You will also encounter the volitional followed by とおもう to mean "I'm thinking of doing X."</p>
+
+  <p><strong>13. Conditional (~たら)</strong> — Means "if/when X happens, then Y." The たら conditional fires once the condition is met — it implies the condition is completed before the consequence occurs. This makes it natural for "when you arrive, call me" type sentences. Contrast with ~ば, which is more purely hypothetical and is less common in everyday speech. たら is by far the most versatile conditional for beginners.</p>
+
+  <p><strong>14. Request (~てください / ~て)</strong> — The polite way to ask someone to do something is te-form + ください: はなしてください = "please speak." In casual speech, the て-form alone functions as a soft request: はなして = "speak, will you?" Adding よ or ね at the end softens or emphasizes the request depending on context. For prohibitions, use the te-form + はいけない (must not) or はだめ (not okay).</p>
 
   <h3>Group 1 — Godan</h3>
   <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Examples: 書く kaku "write", 飲む nomu "drink", 話す hanasu "speak"</p>
@@ -1448,7 +1488,7 @@
 <section id="s9">
   <span class="section-label">§ 9</span>
   <h2>Build the Sentence</h2>
-  <p class="intro">Click the chips to build each sentence in the correct order. The romaji shows the target. Submit to check.</p>
+  <p class="intro">Click the chips to build each sentence in the correct order. Each chip shows the Japanese on top and its romaji below. Submit to check your answer.</p>
 
   <div class="score-display" id="ex-score-display">Score: <span id="ex-score">0</span> / <span id="ex-total">0</span> answered
     <div class="score-bar-bg"><div class="score-bar-fill" id="ex-score-bar" style="width:0%"></div></div>
@@ -1501,150 +1541,175 @@ const exercises = [
     en: "I eat sushi every day.",
     rom: "Watashi wa mainichi sushi wo tabemasu.",
     answer: ["わたしは","まいにち","すしを","たべます。"],
+    romChips: ["watashi wa","mainichi","sushi wo","tabemasu."],
     breakdown: "わたしは (I/topic) · まいにち (every day) · すしを (sushi/object) · たべます (eat/polite)"
   },
   {
     en: "There is a cat in the room.",
     rom: "Heya ni neko ga imasu.",
     answer: ["へやに","ねこが","います。"],
+    romChips: ["heya ni","neko ga","imasu."],
     breakdown: "へやに (in the room) · ねこが (cat/subject) · います (exists·animate)"
   },
   {
     en: "She went to Tokyo yesterday.",
     rom: "Kanojo wa kinou Tokyo ni ikimashita.",
     answer: ["かのじょは","きのう","とうきょうに","いきました。"],
+    romChips: ["kanojo wa","kinou","Tokyo ni","ikimashita."],
     breakdown: "かのじょは (she/topic) · きのう (yesterday) · とうきょうに (to Tokyo) · いきました (went/polite past)"
   },
   {
     en: "I want to drink coffee.",
     rom: "Koohii wo nomitai desu.",
     answer: ["コーヒーを","のみたい","です。"],
+    romChips: ["koohii wo","nomitai","desu."],
     breakdown: "コーヒーを (coffee/object) · のみたい (want to drink) · です (polite)"
   },
   {
     en: "This book is interesting.",
     rom: "Kono hon wa omoshiroi desu.",
     answer: ["このほんは","おもしろい","です。"],
+    romChips: ["kono hon wa","omoshiroi","desu."],
     breakdown: "このほんは (this book/topic) · おもしろい (interesting/i-adj) · です (polite)"
   },
   {
     en: "He doesn't speak Japanese.",
     rom: "Kare wa nihongo wo hanashimasen.",
     answer: ["かれは","にほんごを","はなしません。"],
+    romChips: ["kare wa","nihongo wo","hanashimasen."],
     breakdown: "かれは (he/topic) · にほんごを (Japanese/object) · はなしません (doesn't speak)"
   },
   {
     en: "I went to the park with my friend.",
     rom: "Tomodachi to kouen ni ikimashita.",
     answer: ["ともだちと","こうえんに","いきました。"],
+    romChips: ["tomodachi to","kouen ni","ikimashita."],
     breakdown: "ともだちと (with friend) · こうえんに (to the park) · いきました (went)"
   },
   {
     en: "Can you read kanji?",
     rom: "Kanji wo yomemasu ka?",
     answer: ["かんじを","よめます","か？"],
+    romChips: ["kanji wo","yomemasu","ka?"],
     breakdown: "かんじを (kanji/object) · よめます (can read/potential polite) · か (question)"
   },
   {
     en: "After eating, I studied.",
     rom: "Tabete kara benkyou shimashita.",
     answer: ["たべてから","べんきょう","しました。"],
+    romChips: ["tabete kara","benkyou","shimashita."],
     breakdown: "たべてから (after eating) · べんきょう (study) · しました (did/past polite)"
   },
   {
     en: "There is no time.",
     rom: "Jikan ga arimasen.",
     answer: ["じかんが","ありません。"],
+    romChips: ["jikan ga","arimasen."],
     breakdown: "じかんが (time/subject) · ありません (doesn't exist/polite neg)"
   },
   {
     en: "I don't understand at all.",
     rom: "Zenzen wakarimasen.",
     answer: ["ぜんぜん","わかりません。"],
+    romChips: ["zenzen","wakarimasen."],
     breakdown: "ぜんぜん (not at all) · わかりません (don't understand)"
   },
   {
     en: "Please speak slowly.",
     rom: "Yukkuri hanashite kudasai.",
     answer: ["ゆっくり","はなして","ください。"],
+    romChips: ["yukkuri","hanashite","kudasai."],
     breakdown: "ゆっくり (slowly) · はなして (speak/te-form) · ください (please)"
   },
   {
     en: "I tried eating ramen.",
     rom: "Raamen wo tabete mimashita.",
     answer: ["ラーメンを","たべて","みました。"],
+    romChips: ["raamen wo","tabete","mimashita."],
     breakdown: "ラーメンを (ramen/object) · たべて (eat/te-form) · みました (tried)"
   },
   {
     en: "My friend is at the station.",
     rom: "Eki ni tomodachi ga imasu.",
     answer: ["えきに","ともだちが","います。"],
+    romChips: ["eki ni","tomodachi ga","imasu."],
     breakdown: "えきに (at the station) · ともだちが (friend/subject) · います (exists·animate)"
   },
   {
     en: "Is this restaurant expensive?",
     rom: "Kono resutoran wa takai desu ka?",
     answer: ["このレストランは","たかい","です","か？"],
+    romChips: ["kono resutoran wa","takai","desu","ka?"],
     breakdown: "このレストランは (this restaurant/topic) · たかい (expensive) · です · か (question)"
   },
   {
     en: "I haven't eaten yet.",
     rom: "Mada tabete imasen.",
     answer: ["まだ","たべて","いません。"],
+    romChips: ["mada","tabete","imasen."],
     breakdown: "まだ (not yet) · たべて (eat/te-form) · いません (progressive neg)"
   },
   {
     en: "Let's go together.",
     rom: "Issho ni ikimashou.",
     answer: ["いっしょに","いきましょう。"],
+    romChips: ["issho ni","ikimashou."],
     breakdown: "いっしょに (together) · いきましょう (let's go/volitional polite)"
   },
   {
     en: "It's okay to use this.",
     rom: "Kore wo tsukatte mo ii desu.",
     answer: ["これを","つかって","もいい","です。"],
+    romChips: ["kore wo","tsukatte","mo ii","desu."],
     breakdown: "これを (this/object) · つかって (use/te-form) · もいい (okay to) · です"
   },
   {
     en: "He is still sleeping.",
     rom: "Kare wa mada nete imasu.",
     answer: ["かれは","まだ","ねて","います。"],
+    romChips: ["kare wa","mada","nete","imasu."],
     breakdown: "かれは (he/topic) · まだ (still) · ねて (sleep/te-form) · います (progressive)"
   },
   {
     en: "I forgot my wallet.",
     rom: "Saifu wo wasuremashita.",
     answer: ["さいふを","わすれました。"],
+    romChips: ["saifu wo","wasuremashita."],
     breakdown: "さいふを (wallet/object) · わすれました (forgot/polite past)"
   },
   {
     en: "Where is the convenience store?",
     rom: "Konbini wa doko desu ka?",
     answer: ["コンビニは","どこ","です","か？"],
+    romChips: ["konbini wa","doko","desu","ka?"],
     breakdown: "コンビニは (convenience store/topic) · どこ (where) · です · か"
   },
   {
     en: "I ended up buying it.",
     rom: "Katte shimaimashita.",
     answer: ["かって","しまいました。"],
+    romChips: ["katte","shimaimashita."],
     breakdown: "かって (buy/te-form) · しまいました (ended up doing)"
   },
   {
     en: "You must not enter.",
     rom: "Haitte wa ikemasen.",
     answer: ["はいって","はいけません。"],
+    romChips: ["haitte","wa ikemasen."],
     breakdown: "はいって (enter/te-form) · はいけません (must not)"
   },
   {
     en: "I already finished my homework.",
     rom: "Mou shukudai wo shimashita.",
     answer: ["もう","しゅくだいを","しました。"],
+    romChips: ["mou","shukudai wo","shimashita."],
     breakdown: "もう (already) · しゅくだいを (homework/object) · しました (did)"
   },
   {
     en: "If it rains, I won't go.",
     rom: "Ame ga futtara ikimasen.",
     answer: ["あめが","ふったら","いきません。"],
+    romChips: ["ame ga","futtara","ikimasen."],
     breakdown: "あめが (rain/subject) · ふったら (if it falls/conditional) · いきません (won't go)"
   }
 ];
@@ -1663,18 +1728,24 @@ function shuffle(arr) {
 function renderExercises() {
   const container = document.getElementById('exercises-container');
   exercises.forEach((ex, idx) => {
-    const chips = shuffle([...ex.answer]);
+    // Build a shuffled index array so we can track original positions
+    const indices = ex.answer.map(function(_,i){return i;});
+    const shuffledIndices = shuffle(indices);
     const div = document.createElement('div');
     div.className = 'exercise';
     div.id = 'ex-' + idx;
     div.innerHTML =
       '<div class="exercise-num">Exercise ' + (idx+1) + ' of ' + exercises.length + '</div>' +
       '<div class="exercise-en">' + ex.en + '</div>' +
-      '<div class="exercise-rom">' + ex.rom + '</div>' +
       '<div class="chip-area" id="answer-' + idx + '"></div>' +
       '<div class="chip-bank" id="bank-' + idx + '">' +
-        chips.map(function(c,ci) {
-          return '<div class="chip" id="chip-'+idx+'-'+ci+'" data-chip="'+c+'" onclick="addChip('+idx+','+ci+')">'+c+'</div>';
+        shuffledIndices.map(function(origIdx, ci) {
+          var jp = ex.answer[origIdx];
+          var rom = (ex.romChips && ex.romChips[origIdx]) ? ex.romChips[origIdx] : '';
+          return '<div class="chip" id="chip-'+idx+'-'+ci+'" data-chip="'+jp+'" data-orig="'+origIdx+'" onclick="addChip('+idx+','+ci+')">' +
+            '<span class="chip-jp">'+jp+'</span>' +
+            (rom ? '<span class="chip-rom">'+rom+'</span>' : '') +
+            '</div>';
         }).join('') +
       '</div>' +
       '<button class="ex-btn" onclick="checkAnswer('+idx+')">Check</button>' +
@@ -1693,7 +1764,7 @@ function addChip(idx, ci) {
   var answerArea = document.getElementById('answer-'+idx);
   var placed = document.createElement('div');
   placed.className = 'chip placed';
-  placed.textContent = chip.dataset.chip;
+  placed.innerHTML = chip.innerHTML;
   placed.dataset.ci = ci;
   placed.onclick = function() { removeFromAnswer(idx, ci); };
   answerArea.appendChild(placed);
@@ -1710,7 +1781,10 @@ function removeFromAnswer(idx, ci) {
 
 function checkAnswer(idx) {
   var answerArea = document.getElementById('answer-'+idx);
-  var placedChips = Array.from(answerArea.querySelectorAll('.chip')).map(function(c){return c.textContent;});
+  var placedChips = Array.from(answerArea.querySelectorAll('.chip')).map(function(c){
+    var jpSpan = c.querySelector('.chip-jp');
+    return jpSpan ? jpSpan.textContent : c.textContent;
+  });
   var correct = exercises[idx].answer;
   var fb = document.getElementById('feedback-'+idx);
   if (placedChips.length === 0) { fb.style.display='none'; return; }
